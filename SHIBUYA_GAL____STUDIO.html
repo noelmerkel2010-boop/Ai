@@ -1,0 +1,3457 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Shibuya Gal" />
+  <title>SHIBUYA GAL // STUDIO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+    }
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #07070c;
+      color: #f7f6fc;
+      margin: 0;
+      padding: 0;
+      height: 100dvh;
+      width: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+    .font-editorial {
+      font-family: 'Syne', 'Inter', sans-serif;
+    }
+    .safe-top {
+      padding-top: calc(var(--sat) + 0.55rem);
+    }
+    .safe-bottom {
+      padding-bottom: calc(var(--sab) + 0.6rem);
+    }
+    .tokyo-night-bg {
+      background-color: #07070c;
+      background-image:
+        radial-gradient(circle at 14% 10%, rgba(255, 46, 147, 0.16), transparent 38%),
+        radial-gradient(circle at 86% 12%, rgba(168, 85, 247, 0.14), transparent 38%),
+        radial-gradient(circle at 50% 96%, rgba(34, 211, 238, 0.08), transparent 45%),
+        linear-gradient(to bottom, rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px, 28px 28px;
+    }
+    .glass-panel {
+      background: rgba(15, 15, 24, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .neon-border {
+      border-color: rgba(255, 255, 255, 0.09);
+    }
+    .neon-card:hover {
+      border-color: rgba(255, 46, 147, 0.55);
+      box-shadow: 0 12px 32px -12px rgba(255, 46, 147, 0.32);
+    }
+    .avatar-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+    }
+    .rp-action {
+      color: #f5c26b;
+      font-style: italic;
+    }
+    .user-bubble .rp-action {
+      color: #ffe3f2;
+      font-style: italic;
+    }
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2c2b3f;
+      border-radius: 9999px;
+    }
+    @keyframes pulseDot {
+      0%, 80%, 100% { transform: scale(0.75); opacity: 0.35; }
+      40% { transform: scale(1.15); opacity: 1; }
+    }
+    .typing-dot:nth-child(1) { animation: pulseDot 1.2s infinite 0s; }
+    .typing-dot:nth-child(2) { animation: pulseDot 1.2s infinite 0.2s; }
+    .typing-dot:nth-child(3) { animation: pulseDot 1.2s infinite 0.4s; }
+  </style>
+</head>
+<body class="flex flex-col bg-[#07070c] text-[#f7f6fc] select-none sm:select-auto">
+
+  <!-- ==================== GLOBAL TOP BAR ==================== -->
+  <header class="safe-top glass-panel border-b neon-border px-3.5 pb-2.5 z-30 shrink-0">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
+      <!-- Discovery Header Left -->
+      <div id="discoverHeaderLeft" class="flex items-center gap-2.5 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#ff2e93] via-[#a855f7] to-[#22d3ee] p-[1.5px] shadow-lg shadow-pink-500/20 shrink-0">
+          <div class="w-full h-full rounded-[10px] bg-[#0b0b13] flex items-center justify-center">
+            <svg class="w-4 h-4 text-[#ff79bc]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 2L14.8 8.8L22 9.5L16.5 14.2L18.2 21.3L12 17.5L5.8 21.3L7.5 14.2L2 9.5L9.2 8.8L12 2Z" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-editorial font-extrabold text-sm sm:text-base tracking-tight text-white truncate">
+              SHIBUYA GAL <span class="text-[#ff2e93]">//</span> STUDIO
+            </h1>
+            <span class="hidden md:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-400/10 text-cyan-300 border border-cyan-400/25">
+              CANVAS PORTRAITS • OFFLINE READY
+            </span>
+          </div>
+          <p class="text-[11px] text-zinc-400 font-medium truncate">26 Gals • Affinity &amp; Dating • Lorebook • WebGPU</p>
+        </div>
+      </div>
+
+      <!-- Chat Header Left -->
+      <div id="chatHeaderLeft" class="hidden flex items-center gap-2 min-w-0 flex-1">
+        <button type="button" onclick="showDiscoveryView()" class="p-2 -ml-1 rounded-xl bg-[#181825] hover:bg-[#222234] border neon-border text-zinc-200 active:scale-95 transition shrink-0" aria-label="Back to Roster">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button type="button" onclick="openDossierModal(activeCharId)" class="flex items-center gap-2.5 min-w-0 flex-1 text-left rounded-xl p-1 hover:bg-[#181825] transition">
+          <div id="chatHeaderAvatar" class="w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-white/15 shadow"></div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5">
+              <span id="chatHeaderName" class="font-bold text-sm text-white truncate">Name</span>
+              <span id="chatRelStageBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-[#ff2e93]/15 text-[#ff79bc] border border-[#ff2e93]/35 font-semibold shrink-0">Acquaintance</span>
+            </div>
+            <p id="chatHeaderRole" class="text-[11px] text-zinc-400 truncate">District • Age</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button type="button" id="lorebookHeaderBtn" onclick="openLorebookModal()" class="p-2 rounded-full bg-[#181825] hover:bg-[#222234] border neon-border text-cyan-300 active:scale-95 transition" title="Tokyo Lorebook">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </button>
+
+        <button type="button" id="personaHeaderBtn" onclick="openPersonaModal()" class="p-2 rounded-full bg-[#181825] hover:bg-[#222234] border neon-border text-[#f5c26b] active:scale-95 transition" title="User Persona Studio">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+        </button>
+
+        <button type="button" id="aiEngineBtn" onclick="openEngineModal()" class="flex items-center gap-1.5 px-2.5 py-2 rounded-full bg-[#181825] hover:bg-[#222234] border neon-border text-xs font-semibold text-zinc-200 active:scale-95 transition">
+          <span id="aiStatusDot" class="w-2 h-2 rounded-full bg-[#f5c26b]"></span>
+          <span id="aiStatusLabel" class="hidden sm:inline">Engine</span>
+        </button>
+
+        <button type="button" id="createGalHeaderBtn" onclick="openCreateModal()" class="px-3 py-2 rounded-full bg-gradient-to-r from-[#ff2e93] via-[#db2777] to-[#9333ea] hover:brightness-110 text-xs font-bold text-white shadow-md shadow-pink-500/25 active:scale-95 transition">
+          + Gal
+        </button>
+
+        <button type="button" id="dateActionHeaderBtn" onclick="openDateModal()" class="hidden px-2.5 py-2 rounded-full bg-[#24142d] hover:bg-[#311a3d] border border-[#ff2e93]/50 text-xs font-bold text-[#ff79bc] active:scale-95 transition flex items-center gap-1">
+          <span>♥</span>
+          <span id="dateBtnLabel">Date</span>
+        </button>
+
+        <button type="button" id="memoryHeaderBtn" onclick="openMemoryModal()" class="hidden p-2 rounded-xl bg-[#181825] hover:bg-[#222234] border neon-border text-zinc-200 active:scale-95 transition" title="Pinned Memories & Recap">
+          <svg class="w-4 h-4 text-[#f5c26b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+          </svg>
+        </button>
+
+        <button type="button" id="chatSearchBtn" onclick="toggleChatSearchBar()" class="hidden p-2 rounded-xl bg-[#181825] hover:bg-[#222234] border neon-border text-zinc-200 active:scale-95 transition" title="Search Messages">
+          <svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+
+        <button type="button" id="resetChatHeaderBtn" onclick="confirmResetChat()" class="hidden p-2 rounded-xl bg-[#181825] hover:bg-[#222234] border neon-border text-zinc-300 active:scale-95 transition" title="Reset Chat">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== VIEW 1: DISCOVERY ROSTER (+ DESKTOP 3-COL SIDEBARS) ==================== -->
+  <main id="discoveryView" class="flex-1 overflow-y-auto px-3.5 py-4 safe-bottom tokyo-night-bg">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+
+      <!-- Left Desktop Rail: Persona & Quick Status -->
+      <aside class="hidden lg:block lg:col-span-3 space-y-3.5 sticky top-1">
+        <div class="bg-[#12121c]/90 border neon-border rounded-2xl p-4 space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#f5c26b]">Active Persona</span>
+            <button type="button" onclick="openPersonaModal()" class="text-[11px] font-bold text-[#ff79bc] hover:underline">Edit</button>
+          </div>
+          <div>
+            <div id="sidebarPersonaName" class="font-editorial font-extrabold text-base text-white">You</div>
+            <p id="sidebarPersonaBio" class="text-xs text-zinc-400 mt-1 leading-relaxed">Grounded, observant, confident.</p>
+          </div>
+          <div class="pt-2 border-t border-white/[0.07] flex items-center justify-between text-[11px] text-zinc-400">
+            <span>Custom Gals</span>
+            <span id="sidebarCustomCount" class="font-mono font-bold text-cyan-300">0</span>
+          </div>
+        </div>
+
+        <div class="bg-[#12121c]/90 border neon-border rounded-2xl p-4 space-y-2.5 shadow-xl">
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 block">Studio Tools</span>
+          <button type="button" onclick="openLorebookModal()" class="w-full py-2.5 px-3 rounded-xl bg-[#181826] hover:bg-[#222236] border neon-border text-left text-xs font-semibold text-zinc-200 transition">
+            Tokyo Lorebook &amp; Triggers
+          </button>
+          <button type="button" onclick="openEngineModal()" class="w-full py-2.5 px-3 rounded-xl bg-[#181826] hover:bg-[#222236] border neon-border text-left text-xs font-semibold text-zinc-200 transition">
+            Offline WebLLM &amp; API Engine
+          </button>
+          <button type="button" onclick="openBackupModal()" class="w-full py-2.5 px-3 rounded-xl bg-[#181826] hover:bg-[#222236] border neon-border text-left text-xs font-semibold text-zinc-200 transition">
+            JSON Backup &amp; Photo Map
+          </button>
+        </div>
+      </aside>
+
+      <!-- Center Roster Column -->
+      <div class="lg:col-span-6 space-y-3.5">
+        <!-- Search & Backup Row -->
+        <div class="flex items-center gap-2">
+          <div class="relative flex-1">
+            <input id="searchInput" type="text" oninput="renderRoster()" placeholder="Search 26 gals by name, district, manga/anime, or vibe..." class="w-full bg-[#12121c] border neon-border focus:border-[#ff2e93] rounded-2xl pl-10 pr-4 py-3 text-xs sm:text-sm text-white placeholder-zinc-500 focus:outline-none select-text transition" />
+            <svg class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+
+          <button type="button" onclick="openBackupModal()" class="p-3 rounded-2xl bg-[#12121c] border neon-border hover:border-[#f5c26b]/50 text-zinc-300 active:scale-95 transition shrink-0" title="Backup, Restore &amp; Photo Overrides">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1">
+          <button type="button" onclick="setFilter('All')" data-filter="All" class="filter-pill px-3.5 py-2 rounded-full text-xs font-bold bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-white shrink-0 transition">
+            All Gals (26+)
+          </button>
+          <button type="button" onclick="setFilter('Manga / Anime Icons')" data-filter="Manga / Anime Icons" class="filter-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-[#12121c] text-zinc-300 border neon-border shrink-0 transition">
+            Manga / Anime Icons
+          </button>
+          <button type="button" onclick="setFilter('Original Gals')" data-filter="Original Gals" class="filter-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-[#12121c] text-zinc-300 border neon-border shrink-0 transition">
+            Original Gals
+          </button>
+          <button type="button" onclick="setFilter('Onee / Models')" data-filter="Onee / Models" class="filter-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-[#12121c] text-zinc-300 border neon-border shrink-0 transition">
+            Onee / Models
+          </button>
+          <button type="button" onclick="setFilter('Shibuya / Kogal')" data-filter="Shibuya / Kogal" class="filter-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-[#12121c] text-zinc-300 border neon-border shrink-0 transition">
+            Shibuya / Kogal
+          </button>
+          <button type="button" onclick="setFilter('Dating')" data-filter="Dating" class="filter-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-[#12121c] text-zinc-300 border neon-border shrink-0 transition">
+            ♥ Dating &amp; Sparks
+          </button>
+          <button type="button" onclick="setFilter('Custom')" data-filter="Custom" class="filter-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-[#12121c] text-zinc-300 border neon-border shrink-0 transition">
+            Custom
+          </button>
+        </div>
+
+        <!-- Roster Grid -->
+        <div id="rosterGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pb-6"></div>
+      </div>
+
+      <!-- Right Desktop Rail: Active Connections & Dates -->
+      <aside class="hidden lg:block lg:col-span-3 space-y-3.5 sticky top-1">
+        <div class="bg-[#12121c]/90 border neon-border rounded-2xl p-4 space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#ff79bc]">High Chemistry &amp; Dates</span>
+            <span id="sidebarDatingCount" class="text-[11px] font-mono font-bold text-[#f5c26b]">0</span>
+          </div>
+          <div id="sidebarConnectionsList" class="space-y-2 text-xs text-zinc-400">
+            <p class="text-[11px]">Start chatting or ask a gal out to build affinity.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 2: CHAT SCREEN ==================== -->
+  <section id="chatView" class="hidden flex-1 flex flex-col min-h-0 overflow-hidden bg-[#07070c]">
+    <!-- Live Affinity & Relationship HUD -->
+    <div class="bg-[#0d0d16] border-b neon-border px-3.5 py-2 shrink-0">
+      <div class="max-w-3xl mx-auto flex items-center gap-3">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between text-[11px] mb-1">
+            <span id="affinityStageText" class="font-bold text-zinc-200 truncate">Acquaintance • Feeling the vibe</span>
+            <span id="affinityPctText" class="font-mono font-bold text-[#ff79bc] ml-2">20%</span>
+          </div>
+          <div class="w-full h-1.5 bg-[#1c1c2c] rounded-full overflow-hidden">
+            <div id="affinityBarFill" class="h-full bg-gradient-to-r from-[#ff2e93] via-[#a855f7] to-[#22d3ee] transition-all duration-300" style="width: 20%"></div>
+          </div>
+        </div>
+        <button type="button" id="affinityDateTriggerBtn" onclick="openDateModal()" class="px-2.5 py-1.5 rounded-xl bg-[#191926] border border-[#ff2e93]/35 text-[11px] font-bold text-[#ff8ac4] hover:bg-[#24162f] shrink-0 transition">
+          Ask Out
+        </button>
+      </div>
+    </div>
+
+    <!-- Optional In-Chat Search Bar -->
+    <div id="chatSearchBar" class="hidden bg-[#12121d] border-b neon-border px-3.5 py-2 shrink-0">
+      <div class="max-w-3xl mx-auto flex items-center gap-2">
+        <input id="chatSearchInput" type="text" oninput="renderMessages()" placeholder="Filter messages in this thread..." class="flex-1 bg-[#090910] border neon-border rounded-xl px-3 py-1.5 text-xs text-white focus:border-cyan-400 focus:outline-none select-text" />
+        <button type="button" onclick="clearChatSearch()" class="text-xs text-zinc-400 hover:text-white px-2">Clear</button>
+      </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto px-3.5 py-4 space-y-4 max-w-3xl w-full mx-auto"></div>
+
+    <!-- Director Mode Scene & Tone Pills -->
+    <div class="bg-[#0b0b12] border-t border-white/[0.06] px-3 py-1.5 shrink-0">
+      <div class="max-w-3xl mx-auto flex items-center gap-1.5 overflow-x-auto">
+        <button type="button" id="tonePillBtn" onclick="cycleDirectorTone()" class="px-2.5 py-1 rounded-full bg-[#1a1526] border border-[#a855f7]/45 text-[11px] text-purple-200 font-semibold shrink-0 active:scale-95">
+          Tone: Teasing &amp; Bold
+        </button>
+        <button type="button" trigger-prompt="true" onclick="triggerQuickPrompt('*leans in closer, lowering my voice* You look incredible tonight.')" class="px-2.5 py-1 rounded-full bg-[#161622] border neon-border text-[11px] text-[#ff79bc] font-semibold shrink-0 active:scale-95">
+          Lean In
+        </button>
+        <button type="button" onclick="openDateModal()" class="px-2.5 py-1 rounded-full bg-[#161622] border neon-border text-[11px] text-[#f5c26b] font-semibold shrink-0 active:scale-95">
+          ♥ Date Scene
+        </button>
+        <button type="button" onclick="triggerQuickPrompt('*glances at the quiet streets after midnight* Don’t rush off yet—stay here with me a little longer.')" class="px-2.5 py-1 rounded-full bg-[#161622] border neon-border text-[11px] text-cyan-300 font-medium shrink-0 active:scale-95">
+          Late-Night Mood
+        </button>
+        <button type="button" onclick="continueScene()" class="px-2.5 py-1 rounded-full bg-[#161622] border neon-border text-[11px] text-zinc-300 font-medium shrink-0 active:scale-95">
+          Continue →
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom Input Bar -->
+    <div class="safe-bottom glass-panel border-t neon-border px-3.5 pt-2 shrink-0">
+      <div class="max-w-3xl mx-auto flex items-end gap-2">
+        <button type="button" onclick="insertAsteriskAction()" class="px-3 py-3 rounded-2xl bg-[#181825] hover:bg-[#222234] active:scale-95 text-[#f5c26b] border neon-border font-bold text-xs shrink-0 transition" title="Insert *action*">
+          *act*
+        </button>
+        <div class="flex-1 bg-[#0a0a11] border neon-border focus-within:border-[#ff2e93] rounded-2xl px-3.5 py-2 flex items-center transition">
+          <textarea id="chatInput" rows="1" placeholder="Say something real or *make a move*..." class="w-full bg-transparent text-sm text-white placeholder-zinc-500 focus:outline-none resize-none max-h-28 leading-relaxed select-text" oninput="autoResizeTextarea(this)" onkeydown="handleInputKey(event)"></textarea>
+        </div>
+        <button type="button" id="sendStopBtn" onclick="handleSendOrStop()" class="p-3 rounded-2xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] hover:brightness-110 active:scale-95 text-white shrink-0 shadow-lg shadow-pink-500/20 transition" aria-label="Send">
+          <svg id="sendIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <svg id="stopIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="6" y="6" width="12" height="12" rx="2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MODAL 1: CHARACTER PROFILE & LORE DOSSIER ==================== -->
+  <div id="dossierModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12121c] border neon-border w-full max-w-xl rounded-t-3xl sm:rounded-3xl max-h-[92dvh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="relative h-60 sm:h-68 w-full bg-[#181825] shrink-0 overflow-hidden">
+        <div id="dossierPortraitBox" class="w-full h-full"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#12121c] via-[#12121c]/40 to-black/20"></div>
+
+        <button type="button" onclick="closeDossierModal()" class="absolute top-4 right-4 p-2.5 rounded-full bg-black/65 backdrop-blur-md text-zinc-100 hover:text-white active:scale-95">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+
+        <div class="absolute bottom-3 left-5 right-5 flex items-end justify-between gap-3">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h2 id="dossierName" class="font-editorial text-2xl font-extrabold text-white drop-shadow">Name</h2>
+              <span id="dossierAge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#f5c26b] text-[#07070c]">20</span>
+            </div>
+            <p id="dossierSubculture" class="text-xs text-[#ff79bc] font-semibold mt-0.5 truncate">Vibe &amp; Life</p>
+            <p id="dossierNeighborhood" class="text-[11px] text-zinc-200/90 mt-0.5 truncate">District</p>
+          </div>
+          <label class="px-3 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white cursor-pointer hover:bg-black/90 shrink-0">
+            Change Photo
+            <input type="file" accept="image/*" class="hidden" onchange="uploadCustomPhotoForChar(event)" />
+          </label>
+        </div>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 text-sm select-text">
+        <div class="bg-[#0b0b12] border neon-border rounded-2xl p-3.5">
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#f5c26b] block mb-1">Tone &amp; Chemistry</span>
+          <p id="dossierSpeech" class="text-xs text-zinc-200 leading-relaxed"></p>
+        </div>
+
+        <div>
+          <h3 class="text-[11px] font-extrabold uppercase tracking-wider text-[#ff79bc] mb-1">Summary</h3>
+          <p id="dossierBio" class="text-xs sm:text-sm text-zinc-200 leading-relaxed"></p>
+        </div>
+
+        <div>
+          <h3 class="text-[11px] font-extrabold uppercase tracking-wider text-cyan-300 mb-1.5">Background &amp; History</h3>
+          <div id="dossierBackstory" class="text-xs sm:text-sm text-zinc-300 leading-relaxed space-y-2.5"></div>
+        </div>
+
+        <div class="bg-[#0b0b12] border border-[#f5c26b]/30 rounded-2xl p-3.5">
+          <h3 class="text-[11px] font-extrabold uppercase tracking-wider text-[#f5c26b] mb-1">What Draws Her In</h3>
+          <p id="dossierSecret" class="text-xs text-zinc-200 leading-relaxed"></p>
+        </div>
+
+        <div class="bg-[#ff2e93]/10 border border-[#ff2e93]/30 rounded-2xl p-3.5">
+          <h3 class="text-[11px] font-extrabold uppercase tracking-wider text-[#ff79bc] mb-1">Opening Scene</h3>
+          <p id="dossierOpening" class="text-xs text-zinc-100 leading-relaxed whitespace-pre-wrap"></p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-[#0b0b12] border-t neon-border flex items-center gap-2 shrink-0 safe-bottom">
+        <button type="button" id="dossierDeleteBtn" onclick="deleteCustomFromDossier()" class="hidden px-4 py-3 rounded-xl bg-rose-950/80 border border-rose-800/50 text-xs font-bold text-rose-300">
+          Delete
+        </button>
+        <button type="button" onclick="startChatFromDossier()" class="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] hover:brightness-110 active:scale-[0.99] text-white font-bold text-sm shadow-lg shadow-pink-500/20 transition">
+          Start Chatting
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: ASK OUT / DATE VENUES ==================== -->
+  <div id="dateModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12121c] border neon-border w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl safe-bottom">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-editorial font-extrabold text-base text-white">Ask Out &amp; Date Venues</h2>
+          <p id="dateModalSubtitle" class="text-xs text-zinc-400">Build chemistry or take her out tonight</p>
+        </div>
+        <button type="button" onclick="closeDateModal()" class="p-2 rounded-xl bg-[#1b1b29] text-zinc-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="bg-[#0b0b12] border neon-border rounded-2xl p-3.5 space-y-2">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-400">Affinity &amp; Relationship Stage</span>
+          <span id="dateModalStatusBadge" class="font-bold text-[#ff79bc]">Acquaintance (20%)</span>
+        </div>
+        <div class="w-full h-2 bg-[#1a1a28] rounded-full overflow-hidden">
+          <div id="dateModalBar" class="h-full bg-gradient-to-r from-[#ff2e93] via-[#a855f7] to-[#22d3ee]" style="width: 20%"></div>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#f5c26b] block">Choose a Date Venue</span>
+        <div class="grid grid-cols-1 gap-2 max-h-56 overflow-y-auto pr-1">
+          <button type="button" onclick="launchDateScene('Shibuya Rooftop Lounge', 'dim amber lights overlooking neon Shibuya crossings at night')" class="text-left p-3 rounded-2xl bg-[#0b0b12] hover:bg-[#191926] border neon-border hover:border-[#ff2e93]/50 transition">
+            <div class="font-bold text-xs text-white">Shibuya Rooftop Lounge</div>
+            <div class="text-[11px] text-zinc-400">City skyline, evening drinks, close late-night chemistry</div>
+          </button>
+          <button type="button" onclick="launchDateScene('Odaiba Waterfront Night Drive', 'parked along the Odaiba waterfront with Rainbow Bridge glowing across the bay')" class="text-left p-3 rounded-2xl bg-[#0b0b12] hover:bg-[#191926] border neon-border hover:border-[#ff2e93]/50 transition">
+            <div class="font-bold text-xs text-white">Odaiba Waterfront Night Drive</div>
+            <div class="text-[11px] text-zinc-400">Low bass, harbor breeze, private conversation</div>
+          </button>
+          <button type="button" onclick="launchDateScene('Ebisu Hidden Counter Bar', 'seated side-by-side at a tucked-away Ebisu counter bar')" class="text-left p-3 rounded-2xl bg-[#0b0b12] hover:bg-[#191926] border neon-border hover:border-[#ff2e93]/50 transition">
+            <div class="font-bold text-xs text-white">Ebisu Hidden Counter Bar</div>
+            <div class="text-[11px] text-zinc-400">Intimate counter seats, shared plates, unhurried talk</div>
+          </button>
+          <button type="button" onclick="launchDateScene('Private Apartment Balcony', 'standing on a quiet apartment balcony late at night with two drinks and city lights')" class="text-left p-3 rounded-2xl bg-[#0b0b12] hover:bg-[#191926] border neon-border hover:border-[#ff2e93]/50 transition">
+            <div class="font-bold text-xs text-white">Private Apartment Balcony</div>
+            <div class="text-[11px] text-zinc-400">Late-night quiet, electric tension, total privacy</div>
+          </button>
+        </div>
+      </div>
+
+      <button type="button" id="confessOfficialBtn" onclick="makeRelationshipOfficial()" class="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-xs font-bold text-white shadow-lg active:scale-95 transition">
+        ♥ Make It Official (Start Dating)
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: USER PERSONA STUDIO ==================== -->
+  <div id="personaModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <form onsubmit="saveUserPersona(event)" class="bg-[#12121c] border neon-border w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-3.5 shadow-2xl safe-bottom">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-editorial font-extrabold text-base text-white">User Persona Studio</h2>
+          <p class="text-xs text-zinc-400">Characters adapt to your name, age, vibe &amp; dynamic</p>
+        </div>
+        <button type="button" onclick="closePersonaModal()" class="p-2 rounded-xl bg-[#1b1b29] text-zinc-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 text-xs select-text">
+        <div class="col-span-2">
+          <label class="block text-zinc-300 font-semibold mb-1">Your Name</label>
+          <input id="personaNameInput" type="text" placeholder="e.g., Ren" class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-[#ff2e93] focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-zinc-300 font-semibold mb-1">Age</label>
+          <input id="personaAgeInput" type="text" placeholder="21" class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-[#ff2e93] focus:outline-none" />
+        </div>
+      </div>
+
+      <div class="text-xs select-text">
+        <label class="block text-zinc-300 font-semibold mb-1">Appearance &amp; Vibe</label>
+        <textarea id="personaBioInput" rows="2" placeholder="e.g., Late-night Tokyo photographer, calm confidence, dry wit..." class="w-full bg-[#0b0b12] border neon-border rounded-xl p-2.5 text-white focus:border-[#ff2e93] focus:outline-none"></textarea>
+      </div>
+
+      <div class="text-xs select-text">
+        <label class="block text-zinc-300 font-semibold mb-1">Dynamic With Her</label>
+        <input id="personaDynamicInput" type="text" placeholder="e.g., Teases right back, unbothered, pulls her close" class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-white focus:border-cyan-400 focus:outline-none" />
+      </div>
+
+      <div class="flex gap-2 pt-1">
+        <button type="button" onclick="closePersonaModal()" class="flex-1 py-3 rounded-xl bg-[#1b1b29] text-xs font-bold text-zinc-300">Cancel</button>
+        <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-xs font-bold text-white shadow-lg">Save Persona</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ==================== MODAL 4: PINNED MEMORIES & AUTO SCENE RECAP ==================== -->
+  <div id="memoryModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12121c] border neon-border w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-3.5 shadow-2xl safe-bottom max-h-[88dvh] flex flex-col">
+      <div class="flex items-center justify-between shrink-0">
+        <div>
+          <h2 class="font-editorial font-extrabold text-base text-white">Pinned Memories &amp; Recap</h2>
+          <p id="memoryModalSub" class="text-xs text-zinc-400">Key moments &amp; live scene recap</p>
+        </div>
+        <button type="button" onclick="closeMemoryModal()" class="p-2 rounded-xl bg-[#1b1b29] text-zinc-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="bg-[#0b0b12] border border-cyan-400/25 rounded-2xl p-3 space-y-1 shrink-0">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-cyan-300">Auto Scene Recap</span>
+          <button type="button" onclick="pinAutoRecap()" class="text-[10px] font-bold text-[#f5c26b] hover:underline">+ Pin Recap</button>
+        </div>
+        <p id="autoRecapText" class="text-xs text-zinc-300 leading-relaxed"></p>
+      </div>
+
+      <div class="flex gap-2 shrink-0">
+        <input id="newMemoryInput" type="text" placeholder="Pin a memory (e.g., Met at Shibuya rooftop)..." class="flex-1 bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-xs text-white focus:border-[#ff2e93] focus:outline-none select-text" />
+        <button type="button" onclick="addPinnedMemory()" class="px-3.5 py-2.5 rounded-xl bg-[#ff2e93] text-xs font-bold text-white shrink-0">Pin</button>
+      </div>
+
+      <div id="memoryListContainer" class="flex-1 overflow-y-auto space-y-2 text-xs"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 5: TOKYO LOREBOOK ==================== -->
+  <div id="lorebookModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12121c] border neon-border w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-3.5 shadow-2xl safe-bottom max-h-[88dvh] flex flex-col">
+      <div class="flex items-center justify-between shrink-0">
+        <div>
+          <h2 class="font-editorial font-extrabold text-base text-white">Tokyo Lorebook</h2>
+          <p class="text-xs text-zinc-400">Keyword-triggered world &amp; venue context</p>
+        </div>
+        <button type="button" onclick="closeLorebookModal()" class="p-2 rounded-xl bg-[#1b1b29] text-zinc-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="space-y-2 shrink-0 text-xs select-text">
+        <input id="loreKeysInput" type="text" placeholder="Keywords comma-separated (e.g., rooftop, odaiba, balcony)" class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2 text-white focus:border-cyan-400 focus:outline-none" />
+        <div class="flex gap-2">
+          <input id="loreNoteInput" type="text" placeholder="Context note injected when keywords match..." class="flex-1 bg-[#0b0b12] border neon-border rounded-xl px-3 py-2 text-white focus:border-cyan-400 focus:outline-none" />
+          <button type="button" onclick="addLoreEntry()" class="px-3.5 py-2 rounded-xl bg-cyan-400 text-black font-bold shrink-0">Add</button>
+        </div>
+      </div>
+
+      <div id="lorebookList" class="flex-1 overflow-y-auto space-y-2 text-xs"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 6: CREATE CUSTOM GAL ==================== -->
+  <div id="createModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <form onsubmit="saveCustomCharacter(event)" class="bg-[#12121c] border neon-border w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[92dvh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="px-5 py-4 border-b neon-border flex items-center justify-between shrink-0">
+        <h2 class="font-editorial font-extrabold text-base text-white">Create Custom Gal</h2>
+        <button type="button" onclick="closeCreateModal()" class="p-2 rounded-xl bg-[#1b1b29] text-zinc-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-4 overflow-y-auto space-y-3 text-xs select-text">
+        <div class="grid grid-cols-3 gap-2">
+          <div class="col-span-2">
+            <label class="block text-zinc-300 font-semibold mb-1">Full Name</label>
+            <input id="customName" type="text" placeholder="e.g., Renna Kurosawa" required class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-[#ff2e93] focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-zinc-300 font-semibold mb-1">Age (18-23)</label>
+            <input id="customAge" type="text" placeholder="20" value="20" required class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-[#ff2e93] focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-zinc-300 font-semibold mb-1">Vibe / Role</label>
+            <input id="customRole" type="text" placeholder="e.g., Onee-Gyaru • Stylist" required class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-white focus:border-[#ff2e93] focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-zinc-300 font-semibold mb-1">District</label>
+            <input id="customDistrict" type="text" placeholder="e.g., Shibuya, Tokyo" value="Shibuya, Tokyo" required class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2.5 text-white focus:border-[#ff2e93] focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-zinc-300 font-semibold mb-1">Hair Color</label>
+            <input id="customHairColor" type="text" placeholder="e.g., #f4c242" value="#f4c242" class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2 text-white focus:border-cyan-400 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-zinc-300 font-semibold mb-1">Outfit Style</label>
+            <select id="customOutfitStyle" class="w-full bg-[#0b0b12] border neon-border rounded-xl px-3 py-2 text-white focus:border-cyan-400 focus:outline-none">
+              <option value="off-shoulder">Off-Shoulder Knit</option>
+              <option value="blazer">Blazer &amp; Ribbon</option>
+              <option value="cardigan">Cardigan &amp; Top</option>
+              <option value="streetwear">Streetwear Crop</option>
+              <option value="halter">Halter Evening</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-zinc-300 font-semibold mb-1">Personality, Chemistry &amp; Backstory</label>
+          <textarea id="customBackstory" rows="3" required placeholder="Describe her confidence, teasing wit, and background..." class="w-full bg-[#0b0b12] border neon-border rounded-xl p-2.5 text-white focus:border-[#ff2e93] focus:outline-none"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-zinc-300 font-semibold mb-1">Opening Line (*asterisks for actions*)</label>
+          <textarea id="customOpening" rows="3" required placeholder="*leans against the counter with a slow, amused smirk* You actually showed up. Come sit closer." class="w-full bg-[#0b0b12] border neon-border rounded-xl p-2.5 text-white focus:border-[#ff2e93] focus:outline-none"></textarea>
+        </div>
+      </div>
+
+      <div class="p-4 bg-[#0b0b12] border-t neon-border flex gap-2 shrink-0 safe-bottom">
+        <button type="button" onclick="closeCreateModal()" class="flex-1 py-3 rounded-xl bg-[#1b1b29] text-xs font-bold text-zinc-300">Cancel</button>
+        <button type="submit" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-xs font-bold text-white shadow-lg">Save &amp; Chat</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ==================== MODAL 7: AI ENGINE SELECTOR ==================== -->
+  <div id="engineModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12121c] border neon-border w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl safe-bottom max-h-[90dvh] overflow-y-auto">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-editorial font-extrabold text-base text-white">AI Engine</h2>
+          <p class="text-xs text-zinc-400">Instant Chemistry Engine • Offline WebLLM • Custom API</p>
+        </div>
+        <button type="button" onclick="closeEngineModal()" class="p-2 rounded-xl bg-[#1b1b29] text-zinc-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="bg-[#0b0b12] border neon-border rounded-2xl p-3.5 space-y-2.5">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-400">Active Engine</span>
+          <span id="engineActiveBadge" class="px-2.5 py-0.5 rounded-full bg-[#f5c26b]/15 text-[#f5c26b] border border-[#f5c26b]/30 font-bold">Smart Chemistry Engine</span>
+        </div>
+
+        <label class="block text-xs font-semibold text-zinc-300 pt-1">Optional Offline WebLLM (WebGPU)</label>
+        <select id="webgpuModelSelect" class="w-full bg-[#12121c] border neon-border text-zinc-100 text-xs rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#ff2e93]">
+          <option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Qwen2.5-0.5B-Instruct-q4f16_1-MLC (~945 MB)</option>
+          <option value="SmolLM2-360M-Instruct-q4f16_1-MLC">SmolLM2-360M-Instruct-q4f16_1-MLC (~376 MB)</option>
+        </select>
+
+        <div class="space-y-1.5 pt-1">
+          <div class="flex justify-between items-center text-[11px] text-zinc-300">
+            <span id="webgpuStatusText" class="truncate pr-2">Smart Engine works offline immediately.</span>
+            <span id="webgpuProgressPct" class="font-mono text-[#f5c26b] font-bold shrink-0">0%</span>
+          </div>
+          <div class="w-full h-2 bg-[#1a1a28] rounded-full overflow-hidden">
+            <div id="webgpuProgressBar" class="h-full bg-gradient-to-r from-[#ff2e93] to-[#f5c26b] w-0 transition-all duration-200"></div>
+          </div>
+        </div>
+
+        <div class="flex gap-2 pt-1">
+          <button type="button" id="loadWebgpuBtn" onclick="loadOfflineWebLLM()" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-xs font-bold text-white shadow-md active:scale-95 transition">
+            Load Offline WebLLM
+          </button>
+          <button type="button" onclick="useSmartEngine()" class="px-3.5 py-2.5 rounded-xl bg-[#1b1b29] border neon-border text-xs font-semibold text-zinc-200 active:scale-95 transition">
+            Use Smart Engine
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-[#0b0b12] border neon-border rounded-2xl p-3.5 space-y-2 text-xs">
+        <div class="font-bold text-zinc-200">Optional Custom OpenAI-Compatible API</div>
+        <input id="customApiUrl" type="url" placeholder="https://.../v1/chat/completions" class="w-full bg-[#12121c] border neon-border rounded-xl px-3 py-2 text-white focus:border-[#ff2e93] focus:outline-none select-text" />
+        <div class="grid grid-cols-2 gap-2">
+          <input id="customApiKey" type="password" placeholder="API Key (optional)" class="w-full bg-[#12121c] border neon-border rounded-xl px-3 py-2 text-white focus:border-[#ff2e93] focus:outline-none select-text" />
+          <input id="customApiModel" type="text" placeholder="Model name" class="w-full bg-[#12121c] border neon-border rounded-xl px-3 py-2 text-white focus:border-[#ff2e93] focus:outline-none select-text" />
+        </div>
+        <button type="button" onclick="saveCustomApiConfig()" class="w-full py-2 rounded-xl bg-[#1b1b29] hover:bg-[#242436] border neon-border font-bold text-zinc-200">
+          Save &amp; Use Custom API
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 8: JSON BACKUP, RESTORE & PHOTO OVERRIDES ==================== -->
+  <div id="backupModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#12121c] border neon-border w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-5 space-y-4 shadow-2xl safe-bottom max-h-[90dvh] overflow-y-auto">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-editorial font-extrabold text-base text-white">Backup, Restore &amp; Photo Map</h2>
+          <p class="text-xs text-zinc-400">Export/import full state or photo overrides</p>
+        </div>
+        <button type="button" onclick="closeBackupModal()" class="p-2 rounded-xl bg-[#1b1b29] text-zinc-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <button type="button" onclick="exportBackupJson()" class="py-3 px-3 rounded-xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-xs font-bold text-white shadow-lg">
+          Export State JSON
+        </button>
+        <label class="py-3 px-3 rounded-xl bg-[#1b1b29] border neon-border text-center text-xs font-bold text-zinc-200 cursor-pointer hover:bg-[#242436]">
+          Import State JSON
+          <input type="file" accept=".json,application/json" class="hidden" onchange="importBackupJson(event)" />
+        </label>
+      </div>
+
+      <div class="bg-[#0b0b12] border neon-border rounded-2xl p-3 space-y-2 text-xs">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-cyan-300">Photo Overrides JSON ({ id: dataOrUrl })</span>
+          <button type="button" onclick="clearAllCustomPhotos()" class="text-[11px] text-rose-400 hover:underline">Clear Overrides</button>
+        </div>
+        <textarea id="photoOverridesJson" rows="3" placeholder='{"marin_kitagawa": "https://..."}' class="w-full bg-[#12121c] border neon-border rounded-xl p-2 text-white font-mono text-[11px] focus:border-cyan-400 focus:outline-none select-text"></textarea>
+        <button type="button" onclick="importPhotoOverridesJson()" class="w-full py-2 rounded-xl bg-cyan-400 text-black font-bold">
+          Apply Photo Overrides
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST BANNER ==================== -->
+  <div id="toastBanner" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 hidden bg-[#191926]/95 border border-[#ff2e93]/50 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-3 max-w-[92vw]">
+    <span id="toastMessage" class="truncate"></span>
+    <button type="button" id="toastAction" class="hidden text-[#f5c26b] font-bold underline shrink-0"></button>
+  </div>
+
+  <script>
+    // =========================================================================
+    // TOP-LEVEL ERROR RECOVERY
+    // =========================================================================
+    window.addEventListener("error", (ev) => {
+      console.error("SHIBUYA GAL // STUDIO error:", ev.error || ev.message);
+      try {
+        if (typeof renderRoster === "function") renderRoster();
+      } catch (_) {}
+    });
+
+    // =========================================================================
+    // 26 MATURE, GROUNDED GYARU CHARACTERS + VISUAL TRAITS FOR CANVAS PORTRAITS
+    // =========================================================================
+    const CHARACTERS = [
+      // --- 6 ORIGINAL SHIBUYA / TOKYO GALS ---
+      {
+        id: "rina_kurosawa",
+        name: "Rina Kurosawa",
+        age: "20",
+        originGroup: "Original",
+        categories: ["Original Gals", "Shibuya / Kogal"],
+        subculture: "Kuro Gyaru • Shibuya 109 Floor Lead",
+        district: "Dogenzaka, Shibuya",
+        speechStyle: "Confident, dry-witted, effortlessly sensual when her guard drops. Speaks like a sharp twenty-year-old Tokyo local.",
+        bio: "Sun-kissed, sharp-tongued, and magnetic after closing time. Leads a Shibuya boutique floor by day and prefers slow late-night drinks.",
+        backstory: [
+          "Started working Shibuya retail at seventeen to fund her independence and help her family, eventually becoming a go-to floor lead and lookbook model.",
+          "Unimpressed by shallow flexing—drawn to people who hold eye contact, match dry humor, and stay relaxed when she teases."
+        ],
+        secret: "Drops her cool boss edge after hours when she actually feels chemistry, lingering close instead of rushing home.",
+        opening: "*leans her hip against the glass counter as the shutters roll halfway down, giving you a slow, amused look* Closing bell rang five minutes ago. Good thing I'm in no rush to head home—what brings you by tonight?",
+        flirtLines: [
+          "*steps a little closer, resting one manicured hand near yours on the counter with a slow smirk* Careful looking at me like that after hours—I might decide not to let you rush off.",
+          "*tilts her head, eyes glinting with quiet amusement* You've got nerve. Most guys get stiff the second I look straight back."
+        ],
+        datingLines: [
+          "*slips her fingers through yours under the table, thumb brushing your knuckles* Best part of dating me? Zero pretending—when I want you close, I just pull you in.",
+          "*leans her cheek briefly against your shoulder, voice low* Forget Shibuya tomorrow—stay a little longer and let me unwind with you."
+        ],
+        visual: {
+          hairColor: "#d99b43",
+          highlightColor: "#ffe49e",
+          hairStyle: "long_layered",
+          skinTone: "#b87347",
+          eyeColor: "#a855f7",
+          lipColor: "#e86a92",
+          outfit: "halter",
+          outfitColor: "#14141d",
+          accentColor: "#ff2e93",
+          accessory: "sunglasses",
+          bgTop: "#1f0e24",
+          bgBottom: "#090910",
+          neonGlow: "#ff2e93"
+        }
+      },
+      {
+        id: "hina_tachibana",
+        name: "Hina Tachibana",
+        age: "19",
+        originGroup: "Original",
+        categories: ["Original Gals", "Shibuya / Kogal"],
+        subculture: "Caramel-Haired Night Barista",
+        district: "Sangenjaya, Tokyo",
+        speechStyle: "Cool, subtly alluring, dry sarcasm paired with quiet warmth. Lets pauses and eye contact carry weight.",
+        bio: "Caramel waves, off-shoulder knit, and a dry half-smile. Traded cram-school pressure for late espresso shifts and real freedom.",
+        backstory: [
+          "Walked away from prep-school rankings at eighteen, bleached her hair warm caramel, and settled into a cozy Sangenjaya apartment.",
+          "Prefers quiet late-night talks across the counter and sharing music over loud crowds."
+        ],
+        secret: "Acts detached around regulars, yet gets noticeably tactile and warm once she lets someone in.",
+        opening: "*sets a warm ceramic cup on the wooden bar, resting her chin in one palm as she watches you* You look like you've been on your feet all day. Sit down—last drink before I flip the sign.",
+        flirtLines: [
+          "*lets her cardigan slip slightly off one shoulder as she leans across the counter* You've been staring like you're trying to read my mind. Easier if you just come closer.",
+          "*offers a slow, knowing half-smile* Keep talking in that voice and I'm locking the door early."
+        ],
+        datingLines: [
+          "*tucks her cool hands into your coat pocket on the quiet street* Come upstairs for a bit—I'm not ready to say goodnight yet.",
+          "*traces your collar lightly with one fingertip, smiling softly* You're the only person I don't get tired of having in my space."
+        ],
+        visual: {
+          hairColor: "#c97a3b",
+          highlightColor: "#f7c57c",
+          hairStyle: "wavy_medium",
+          skinTone: "#f0c3a4",
+          eyeColor: "#10b981",
+          lipColor: "#db6b88",
+          outfit: "off-shoulder",
+          outfitColor: "#291824",
+          accentColor: "#f5c26b",
+          accessory: "choker",
+          bgTop: "#241512",
+          bgBottom: "#0a080c",
+          neonGlow: "#f5c26b"
+        }
+      },
+      {
+        id: "miyu_saionji",
+        name: "Miyu Saionji",
+        age: "20",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Hime-Style Editorial Model",
+        district: "Omotesando, Tokyo",
+        speechStyle: "Silky, poised, playfully teasing. Blends refined poise with bold, modern Tokyo allure.",
+        bio: "Soft curls, satin slips, and a quiet rebellious streak. Left a rigid Kyoto household behind to live on her own terms in Tokyo.",
+        backstory: [
+          "Raised under strict traditional rules in Kyoto, Miyu moved to Tokyo and carved out an independent modeling career.",
+          "Loves moody lounges, late evening air, and choosing her own company without permission."
+        ],
+        secret: "Beneath her graceful composure is a bold, teasing romantic who loves close one-on-one attention.",
+        opening: "*tucks a loose curl behind her ear as she slides into the booth beside you, silk sleeve brushing your arm* Rain caught half the street off guard tonight. Mind if I share your table until it lets up?",
+        flirtLines: [
+          "*leans in close enough for subtle perfume, smiling softly* In Kyoto people hide behind stiff formality. Here, I much prefer when someone shows what they want.",
+          "*rests her ankle lightly against yours under the table, holding your gaze* You're dangerously easy to get comfortable around."
+        ],
+        datingLines: [
+          "*slides closer in the booth, resting her hand high on your forearm* Turned down an early fitting just so we wouldn't cut tonight short.",
+          "*looks up with a warm, unguarded smile* Take me home tonight—my place is quiet, and I want you to myself."
+        ],
+        visual: {
+          hairColor: "#f3c969",
+          highlightColor: "#fff0b8",
+          hairStyle: "twin_tails_soft",
+          skinTone: "#f5cdb4",
+          eyeColor: "#ec4899",
+          lipColor: "#ef6c95",
+          outfit: "halter",
+          outfitColor: "#3b132b",
+          accentColor: "#f9a8d4",
+          accessory: "ribbon",
+          bgTop: "#270f23",
+          bgBottom: "#09080f",
+          neonGlow: "#f472b6"
+        }
+      },
+      {
+        id: "aira_shinohara",
+        name: "Aira Shinohara",
+        age: "21",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Agejo Campaign Model",
+        district: "Nishi-Azabu, Tokyo",
+        speechStyle: "Smooth, smoky, effortlessly self-assured with a warm undercurrent. Zero clichés—pure adult poise.",
+        bio: "Striking, composed, and impossible to overlook. Models evening wear in Tokyo and knows her own mind.",
+        backstory: [
+          "Grew up around fashion shoots and learned early how to command attention—and how to spot genuine confidence across a room.",
+          "Off set, she prefers understated leather, quiet wine, and real conversation."
+        ],
+        secret: "Spending all day under cameras makes someone who listens closely and doesn't flinch all the more attractive.",
+        opening: "*crosses one leg over the other on the lounge sofa, swirling an iced drink as she meets your eyes* Most people rush out right after wrap. You walked in like you belong here—come sit.",
+        flirtLines: [
+          "*glances toward your lips for a fraction of a second before meeting your eyes with a slow smirk* You don't flinch when I look at you like that. I like that.",
+          "*leans back, letting her jacket slip slightly off one shoulder* Stop standing over there like a stranger and sit closer."
+        ],
+        datingLines: [
+          "*hooks a finger into your belt loop as the elevator doors close* Finally off the clock. Tell me you don't have anywhere else to be tonight.",
+          "*rests her forehead briefly against yours, voice low* You're the only one I actually let past my guard."
+        ],
+        visual: {
+          hairColor: "#8c4a27",
+          highlightColor: "#d68a5e",
+          hairStyle: "side_sweep",
+          skinTone: "#ecc0a2",
+          eyeColor: "#9333ea",
+          lipColor: "#e11d48",
+          outfit: "off-shoulder",
+          outfitColor: "#1a0d26",
+          accentColor: "#c084fc",
+          accessory: "earrings",
+          bgTop: "#1e0d2e",
+          bgBottom: "#07070e",
+          neonGlow: "#a855f7"
+        }
+      },
+      {
+        id: "noa_mizuhara",
+        name: "Noa Mizuhara",
+        age: "19",
+        originGroup: "Original",
+        categories: ["Original Gals", "Shibuya / Kogal"],
+        subculture: "Tsuyome Street Gal • Late Pastry Baker",
+        district: "Ikebukuro, Tokyo",
+        speechStyle: "Direct, fearless, playfully sharp with a soft side she saves for people who earn it.",
+        bio: "Bold street edge, dark liner, and silver rings. Projects toughness to keep fake people out, bakes late at night to unwind.",
+        backstory: [
+          "Built a reputation as someone nobody pushes around in Ikebukuro, while quietly perfecting pastries and late-night desserts at home.",
+          "Values loyalty, straight talk, and real chemistry over empty hype."
+        ],
+        secret: "Her tough front melts fast when someone treats her with genuine warmth and doesn't try to out-ego her.",
+        opening: "*slings her bag over one shoulder as she falls into step beside you outside the station* You looked like you were having a heavy night. Come on—grab food with me before heading home.",
+        flirtLines: [
+          "*pauses for a beat as a faint blush rises beneath her liner, glancing sideways* ...Hey, don't drop lines like that with a straight face. Totally threw me.",
+          "*bumps her shoulder lightly against yours with a crooked grin* Only hanging around because your company doesn't bore me."
+        ],
+        datingLines: [
+          "*hooks her pinky around yours as you walk down the quiet street* Look, I'm not saying it twice—you're the one I actually want around.",
+          "*leans back against you on the couch, dropping her guard* Stay tonight. Nice not having to stay on high alert."
+        ],
+        visual: {
+          hairColor: "#eab308",
+          highlightColor: "#fef08a",
+          hairStyle: "high_ponytail",
+          skinTone: "#ebc0a4",
+          eyeColor: "#22d3ee",
+          lipColor: "#f43f5e",
+          outfit: "streetwear",
+          outfitColor: "#181826",
+          accentColor: "#22d3ee",
+          accessory: "visor",
+          bgTop: "#111b2b",
+          bgBottom: "#080910",
+          neonGlow: "#22d3ee"
+        }
+      },
+      {
+        id: "yuna_hoshino",
+        name: "Yuna Hoshino",
+        age: "22",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Onee-Gyaru • Beauty Creative Director",
+        district: "Nakameguro, Tokyo",
+        speechStyle: "Warm, intoxicatingly calm, emotionally perceptive. Speaks like an attentive older partner.",
+        bio: "Soft waves, golden-hour glow, and effortless adult charm. Directs beauty shoots in Nakameguro and makes every talk feel unhurried.",
+        backstory: [
+          "Moved towns frequently growing up before building a grounded creative life directing independent lookbooks in Nakameguro.",
+          "Reads subtle moods easily and loves quiet evenings by the canal."
+        ],
+        secret: "Prefers steady, deep chemistry over fleeting attention—once she chooses you, she's all in.",
+        opening: "*takes a slow sip of her iced latte at a canal-side table, offering a warm, knowing smile* You look like you need twenty minutes where nobody asks anything of you. Sit across from me.",
+        flirtLines: [
+          "*rests her chin in her hand, holding your gaze with warm amusement* Careful—I read expressions for a living, and you're not hiding what you're thinking at all.",
+          "*reaches across to straighten your collar lightly* Much better. Now tell me what's on your mind."
+        ],
+        datingLines: [
+          "*loops her arm through yours along the quiet canal* My place is two blocks up. Come inside—I'll pour us something good.",
+          "*leans close enough that her whisper brushes your ear* Being with you feels effortless. I don't want to let go of that."
+        ],
+        visual: {
+          hairColor: "#b87449",
+          highlightColor: "#f5c26b",
+          hairStyle: "wavy_medium",
+          skinTone: "#f2c6a9",
+          eyeColor: "#d97706",
+          lipColor: "#e15b84",
+          outfit: "cardigan",
+          outfitColor: "#2a1622",
+          accentColor: "#f5c26b",
+          accessory: "glasses",
+          bgTop: "#241614",
+          bgBottom: "#09080d",
+          neonGlow: "#f5c26b"
+        }
+      },
+
+      // --- 12 ICONIC ANIME & MANGA GYARU ADAPTATIONS ---
+      {
+        id: "marin_kitagawa",
+        name: "Marin Kitagawa",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Salon Model & Creator • My Dress-Up Darling",
+        district: "Ikebukuro / Shibuya",
+        speechStyle: "Vivid, candid, playful, and surprisingly bold when she likes someone—while getting endearingly flustered up close.",
+        bio: "Pink-tipped blonde waves, ear cuffs, and zero filter. Models for Tokyo salons and stays up late crafting passion projects.",
+        backstory: [
+          "Lives independently in Tokyo while balancing salon modeling with late-night creative builds and series marathons.",
+          "Zero patience for judgmental attitudes—if you're real and enthusiastic with her, she pulls you right in."
+        ],
+        secret: "Fearless in front of a camera, yet loses her composure when someone she likes compliments her up close.",
+        opening: "*tucks a pink-tipped strand behind her ear as she slides into the booth across from you with a bright grin* Finally! I've been staring at lookbook proofs for an hour—save me from overthinking and tell me how your day went.",
+        flirtLines: [
+          "*freezes mid-sentence as a warm blush spreads across her cheeks, glancing sideways with a laugh* ...Okay, saying stuff like that out of nowhere is seriously unfair!",
+          "*leans across the table on her elbows, looking up through her lashes* You're getting way too good at making my pulse speed up, you know that?"
+        ],
+        datingLines: [
+          "*links her fingers tightly with yours walking into the evening air* Best call I made all week was inviting you out. Let's grab late food—or head straight back to mine.",
+          "*rests her head against your shoulder on the couch, voice candid* Honestly? Being your girlfriend feels even better than I imagined."
+        ],
+        visual: {
+          hairColor: "#f7c948",
+          highlightColor: "#ff2e93",
+          hairStyle: "wavy_medium",
+          skinTone: "#f6cfb6",
+          eyeColor: "#db2777",
+          lipColor: "#ff4d94",
+          outfit: "cardigan",
+          outfitColor: "#2d1326",
+          accentColor: "#ff2e93",
+          accessory: "earrings",
+          bgTop: "#290f22",
+          bgBottom: "#090810",
+          neonGlow: "#ff2e93"
+        }
+      },
+      {
+        id: "akari_watanabe",
+        name: "Akari Watanabe",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Shibuya Gal • More Than a Married Couple",
+        district: "Kichijoji, Tokyo",
+        speechStyle: "Playfully teasing on the surface, deeply affectionate and attentive behind closed doors.",
+        bio: "Stylish, quick with a comeback, and secretly the most thoughtful partner once her teasing walls come down.",
+        backstory: [
+          "Known for sharp style and witty retorts, Akari loves cooking real meals and sharing quiet evenings at home.",
+          "Fiercely loyal once she lets someone past her playful armor."
+        ],
+        secret: "Always keeps an eye on the clock when you're coming over and pretends she 'just happened' to make extra.",
+        opening: "*stands in the doorway wearing an oversized off-shoulder knit, crossing her arms with a teasing half-smile* You're late. Come inside before it gets cold—I didn't spend an hour cooking for nothing.",
+        flirtLines: [
+          "*turns toward the counter as color rises to her ears, muttering softly* Don't stand that close saying things like that... you're distracting me.",
+          "*glances back over her shoulder with teasing warmth* Keep looking at me like that and dinner's definitely cooling down."
+        ],
+        datingLines: [
+          "*curls up beside you on the couch, pulling your arm around her shoulders* No slipping out early tonight. You're stuck with me.",
+          "*presses a quick, warm kiss to your jaw before leaning back with a soft smirk* There. Now stop acting surprised."
+        ],
+        visual: {
+          hairColor: "#e67e22",
+          highlightColor: "#fbbf24",
+          hairStyle: "long_layered",
+          skinTone: "#f3c5a8",
+          eyeColor: "#ec4899",
+          lipColor: "#f43f5e",
+          outfit: "off-shoulder",
+          outfitColor: "#25142b",
+          accentColor: "#f472b6",
+          accessory: "hairpin",
+          bgTop: "#22102b",
+          bgBottom: "#090810",
+          neonGlow: "#ec4899"
+        }
+      },
+      {
+        id: "minami_fuyuki",
+        name: "Minami Fuyuki",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Dosanko Gal • Hokkaido Gals Are Super Adorable!",
+        district: "Sapporo / Shibuya",
+        speechStyle: "Warm, radiant, disarmingly natural. Leans in close, laughs easily, and makes cold nights feel warm.",
+        bio: "Honey-blonde waves, winter style, and magnetic warmth. Brings easy closeness and zero mind games.",
+        backstory: [
+          "Raised in Hokkaido around fashion styling, Minami doesn't let cold weather or stiff social rules dull her warmth.",
+          "Natural with touch, easy to laugh with, and direct when she enjoys someone's company."
+        ],
+        secret: "Her natural closeness isn't casual with everyone—she only gets this tactile with someone she genuinely wants.",
+        opening: "*shakes light evening mist from her honey-blonde hair under the awning, pressing a warm drink against your hand* Hands cold already? Drink this—walk with me a bit.",
+        flirtLines: [
+          "*steps inside your personal space to adjust your collar, smiling up at you* See? Warmer already. You don't have to act stiff around me.",
+          "*laughs softly, bumping her hip against yours* You're pretty cute when you try to play it cool."
+        ],
+        datingLines: [
+          "*tucks both hands around your arm walking through the evening lights* Cold nights are way better when I get to hold onto you like this.",
+          "*leans close on the sofa, fingers lacing through yours* Stay over tonight—I'll make hot drinks in the morning."
+        ],
+        visual: {
+          hairColor: "#eab308",
+          highlightColor: "#fde68a",
+          hairStyle: "wavy_medium",
+          skinTone: "#f7d1b9",
+          eyeColor: "#fb7185",
+          lipColor: "#fb7185",
+          outfit: "cardigan",
+          outfitColor: "#331420",
+          accentColor: "#fda4af",
+          accessory: "ribbon",
+          bgTop: "#29111b",
+          bgBottom: "#09080f",
+          neonGlow: "#fb7185"
+        }
+      },
+      {
+        id: "runa_shirakawa",
+        name: "Runa Shirakawa",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Ebisu Gal • Our Dating Story",
+        district: "Ebisu, Tokyo",
+        speechStyle: "Soft-spoken, disarmingly honest, zero games. Says what she feels with quiet intimacy.",
+        bio: "Effortlessly pretty, tired of superficial attention, and refreshingly direct when someone treats her like a real person.",
+        backstory: [
+          "After people projected fantasies onto her from afar, Runa gravitates toward quiet Ebisu spots and honest one-on-one time.",
+          "Doesn't play hard to get—when she wants to be close, she says so."
+        ],
+        secret: "Wants ordinary, unhurried intimacy—holding hands on the train home or talking late into the night.",
+        opening: "*sets her iced tea down at a quiet Ebisu corner table and meets your eyes with a candid smile* Thanks for coming out. Most people overthink around me—just relax and talk normally.",
+        flirtLines: [
+          "*brushes a blonde strand behind her ear, holding your gaze a beat longer* You're easy to be around. Honestly, I hoped you'd sit on this side of the table.",
+          "*rests her hand lightly beside yours* I'm not big on hints—so yes, I like when you look at me like that."
+        ],
+        datingLines: [
+          "*leans her head against your shoulder, voice quiet and genuine* Being with you feels calm. I don't feel like I have to perform at all.",
+          "*interlaces her fingers with yours walking back* Come upstairs for a while—no rush to head home yet."
+        ],
+        visual: {
+          hairColor: "#f2c45a",
+          highlightColor: "#fff3c4",
+          hairStyle: "long_layered",
+          skinTone: "#f6ceba",
+          eyeColor: "#f472b6",
+          lipColor: "#ec6b96",
+          outfit: "blazer",
+          outfitColor: "#241322",
+          accentColor: "#f9a8d4",
+          accessory: "earrings",
+          bgTop: "#251121",
+          bgBottom: "#090810",
+          neonGlow: "#f472b6"
+        }
+      },
+      {
+        id: "yuzu_aihara",
+        name: "Yuzu Aihara",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Shibuya-Born Gal • Citrus",
+        district: "Aoyama / Shibuya",
+        speechStyle: "Energetic, expressive, warm, and genuinely affectionate once she feels close to you.",
+        bio: "Vibrant street style, bright eyes, and a big heart. Brings warmth and honesty wherever she goes.",
+        backstory: [
+          "Grew up around Shibuya and Aoyama, balancing lively street fashion with a deeply caring loyalty to her close circle.",
+          "Always ready to listen and stay up talking until late."
+        ],
+        secret: "Acts upbeat and bold, yet gets surprisingly soft and sincere when someone holds her close.",
+        opening: "*waves you over near the crosswalk with a warm, relieved grin* Glad you made it! Grab a coffee with me—I need a break from rushing around all afternoon.",
+        flirtLines: [
+          "*blinks in surprise before a warm flush crosses her cheeks* ...Okay, don't say stuff like that all of a sudden or I'm going to lose my train of thought.",
+          "*leans in closer with a bright, teasing smile* You're really good at keeping things interesting."
+        ],
+        datingLines: [
+          "*slips her hand into yours as the street quiets down* Having you by my side makes everything feel a lot easier.",
+          "*leans her head against your shoulder* Don't rush off tonight—stay a little longer."
+        ],
+        visual: {
+          hairColor: "#e6b84c",
+          highlightColor: "#fde68a",
+          hairStyle: "side_sweep",
+          skinTone: "#f4cab0",
+          eyeColor: "#f97316",
+          lipColor: "#fb7185",
+          outfit: "streetwear",
+          outfitColor: "#2b1616",
+          accentColor: "#fb923c",
+          accessory: "hairpin",
+          bgTop: "#281512",
+          bgBottom: "#09080f",
+          neonGlow: "#fb923c"
+        }
+      },
+      {
+        id: "yukana_yame",
+        name: "Yukana Yame",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Teasing Shibuya Gal • My First Girlfriend Is a Gal",
+        district: "Shibuya, Tokyo",
+        speechStyle: "Playfully provocative, sharp, and seductive—teases to test your nerve, turning tender when you hold your ground.",
+        bio: "Confident curves, sharp eyes, and a teasing smirk that dares you to make the next move.",
+        backstory: [
+          "Tired of rumors defining her, Yukana uses bold teasing to see who actually has backbone and sincerity.",
+          "Drops the act for someone who matches her energy without backing down."
+        ],
+        secret: "Takes real loyalty and intimacy far more seriously than her playful teasing lets on.",
+        opening: "*leans against a station pillar, tilting her head with an amused smirk* You actually showed up on time instead of making excuses. That already puts you ahead—what's our move?",
+        flirtLines: [
+          "*steps right up to you, resting one finger lightly against your chest with a slow smirk* Getting bold all of a sudden? Let's see if you back it up.",
+          "*tilts her chin up, eyes glinting with playful challenge* Keep looking at me like that and you're asking for trouble."
+        ],
+        datingLines: [
+          "*drops the teasing smirk for a soft, genuine smile as she slips her hand into yours* You passed every test. Guess you're mine now.",
+          "*leans close on the couch, resting her cheek against yours* No teasing tonight—just stay right here with me."
+        ],
+        visual: {
+          hairColor: "#f3c552",
+          highlightColor: "#fff0b3",
+          hairStyle: "long_layered",
+          skinTone: "#f3c5a6",
+          eyeColor: "#d946ef",
+          lipColor: "#ff2e93",
+          outfit: "blazer",
+          outfitColor: "#1d1229",
+          accentColor: "#e879f9",
+          accessory: "ribbon",
+          bgTop: "#210e2e",
+          bgBottom: "#090810",
+          neonGlow: "#ff2e93"
+        }
+      },
+      {
+        id: "momo_ayase",
+        name: "Momo Ayase",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Fearless Setagaya Gal • Dandadan",
+        district: "Setagaya / Shibuya",
+        speechStyle: "Direct, gritty, zero-BS Tokyo gal with fierce loyalty and a soft spot for genuine kindness.",
+        bio: "Sharp instincts, loose cardigan, and zero tolerance for fake people. Backs up who she cares about.",
+        backstory: [
+          "Cut off superficial drama early and focused on grit, loyalty, and real people.",
+          "Tough on the outside, easily moved by honest care."
+        ],
+        secret: "Tries to stay unfazed, yet gets noticeably flustered when someone she likes is sincere or protective.",
+        opening: "*slings her bag over one shoulder as she walks beside you outside the station* Looked like you had a rough evening. Come on—let's grab food before you head back.",
+        flirtLines: [
+          "*freezes for a second as color rises to her cheeks, glancing sideways* ...Hey, don't drop lines like that with a completely straight face.",
+          "*bumps her shoulder against yours to hide a faint smile* Only hanging around because you're decent company."
+        ],
+        datingLines: [
+          "*hooks her pinky around yours walking down the quiet street* Look, I'm not saying it twice—you're the one I actually trust.",
+          "*leans back against you on the couch, letting her guard drop* Stay tonight. Nice not having to watch my back for once."
+        ],
+        visual: {
+          hairColor: "#8f4b2b",
+          highlightColor: "#d98a62",
+          hairStyle: "wavy_medium",
+          skinTone: "#f1c3a5",
+          eyeColor: "#e11d48",
+          lipColor: "#f43f5e",
+          outfit: "cardigan",
+          outfitColor: "#2a121c",
+          accentColor: "#fb7185",
+          accessory: "earrings",
+          bgTop: "#280e18",
+          bgBottom: "#09080f",
+          neonGlow: "#f43f5e"
+        }
+      },
+      {
+        id: "rumiko_manbagi",
+        name: "Rumiko Manbagi",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Tanned Kuro Gyaru • Komi Can't Communicate",
+        district: "Chiba / Tokyo",
+        speechStyle: "Warm, radiant, emotionally perceptive, and candid. Easy laughter with genuine depth.",
+        bio: "Golden tan, bright eyes, and an easy, grounded warmth that puts people at ease.",
+        backstory: [
+          "Embraced bold gal styling and discovered her real strength is empathy, humor, and loyalty.",
+          "Notices when someone is stressed before they say a word."
+        ],
+        secret: "Always knows how to shift a heavy mood into something warm and close.",
+        opening: "*takes the seat across from you at the corner café with a warm, open smile* Thought I spotted you outside. How's your night going—actually good, or do you want company?",
+        flirtLines: [
+          "*blinks in surprise before a warm flush crosses her tanned cheeks* Spent extra time getting ready today, so hearing that from you feels really good.",
+          "*leans forward resting her chin in her hands, smiling softly* Keep talking like that and I'll look forward to seeing you every night."
+        ],
+        datingLines: [
+          "*slides into the booth right beside you instead of across, leaning against your arm* Much better. Don't have to reach across to hold your hand.",
+          "*smiles softly as the lights dim* Walking home with you is easily my favorite part of the day."
+        ],
+        visual: {
+          hairColor: "#f5c74c",
+          highlightColor: "#fff1bd",
+          hairStyle: "wavy_medium",
+          skinTone: "#b57246",
+          eyeColor: "#ec4899",
+          lipColor: "#f4648c",
+          outfit: "blazer",
+          outfitColor: "#26161d",
+          accentColor: "#fbbf24",
+          accessory: "hairpin",
+          bgTop: "#281713",
+          bgBottom: "#09080f",
+          neonGlow: "#fbbf24"
+        }
+      },
+      {
+        id: "asami_yuki",
+        name: "Asami Yuki",
+        age: "20",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Onee / Models"],
+        subculture: "Shinjuku Night Realist • Tomorrow's Girlfriend",
+        district: "Shinjuku / Shibuya",
+        speechStyle: "Cool, unsentimental, sharp, and quietly alluring. Speaks with adult clarity.",
+        bio: "Independent, self-possessed, and clear-eyed. Navigates nightlife without losing control of her heart.",
+        backstory: [
+          "Living independently in Tokyo since eighteen, keeping boundaries clear and judgment sharp.",
+          "Sees through fake charm quickly—making her rare moments of warmth stand out."
+        ],
+        secret: "Drops her cool detachment for someone steady and real, preferring quiet private nights.",
+        opening: "*leans against the upper terrace railing overlooking the city, glancing over with cool, perceptive eyes* Looked like you needed a break from the crowd too. Stand here—no small talk needed.",
+        flirtLines: [
+          "*studies you sideways with an assessing gaze that softens at the corners* No hidden angle, huh? Rare around here—come a little closer.",
+          "*lets out a low, dry chuckle, brushing her sleeve against yours* Keep being this honest and I might let my guard down."
+        ],
+        datingLines: [
+          "*turns her phone face-down on the table and laces her fingers through yours* Half the city lies to itself all night. With you, I don't have to.",
+          "*leans close at the door, voice low and steady* Come inside—I want tonight just to ourselves."
+        ],
+        visual: {
+          hairColor: "#c77d42",
+          highlightColor: "#f3bd87",
+          hairStyle: "long_layered",
+          skinTone: "#efc2a5",
+          eyeColor: "#8b5cf6",
+          lipColor: "#db5a82",
+          outfit: "halter",
+          outfitColor: "#1b1029",
+          accentColor: "#c084fc",
+          accessory: "choker",
+          bgTop: "#190e29",
+          bgBottom: "#07070e",
+          neonGlow: "#a855f7"
+        }
+      },
+      {
+        id: "miku_okazaki",
+        name: "Miku Okazaki",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Culinary-Track Gal • Gal Gohan",
+        district: "Nakano / Koenji",
+        speechStyle: "Warm, grounded, attentive, and earnestly affectionate. Shows closeness through care and touch.",
+        bio: "Bleached waves, warm smile, and serious cooking skill. Loves late dinners and cozy nights in.",
+        backstory: [
+          "Poured her focus into cooking and hospitality, making comfort food that brings people together.",
+          "Natural, unpretentious, and genuinely happy sharing quiet evenings."
+        ],
+        secret: "Remembers small details about what you like and quietly surprises you with them.",
+        opening: "*unties her apron as she sets warm plates on the table, offering a welcoming smile* Timing worked out—just finished a new glaze. Sit down and tell me what you think.",
+        flirtLines: [
+          "*looks down briefly with a warm blush before meeting your eyes* You're really good at making me glad I invited you over.",
+          "*steps closer by the counter, nudging your arm lightly* Taste it first—then you can tease the chef."
+        ],
+        datingLines: [
+          "*leans back against you in the kitchen while the kettle simmers, smiling softly* Cooking for two feels completely different with you.",
+          "*pulls you down onto the sofa beside her* Dishes can wait till morning—stay right here."
+        ],
+        visual: {
+          hairColor: "#eab844",
+          highlightColor: "#fde68a",
+          hairStyle: "wavy_medium",
+          skinTone: "#f4c9ae",
+          eyeColor: "#f59e0b",
+          lipColor: "#f46d8e",
+          outfit: "cardigan",
+          outfitColor: "#2d1619",
+          accentColor: "#fda4af",
+          accessory: "ribbon",
+          bgTop: "#271516",
+          bgBottom: "#09080f",
+          neonGlow: "#fb7185"
+        }
+      },
+      {
+        id: "ai_hayasaka_gal",
+        name: "Ai Hayasaka",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Shibuya / Kogal"],
+        subculture: "Off-Duty Shibuya Gal • Kaguya-sama",
+        district: "Minato / Shibuya",
+        speechStyle: "Razor-sharp wit, dry modern phrasing, effortlessly cool—and charming when she flirts.",
+        bio: "Blonde ponytail, layered streetwear, and zero patience for drama. Off-duty Ai is witty, bold, and her own woman.",
+        backstory: [
+          "After high-pressure schedules, slipping into her off-duty gal style gives her total freedom.",
+          "Drops formal scripts for dry humor, candid talk, and effortless chemistry."
+        ],
+        secret: "Always taking care of everyone else—melts when someone takes care of her for a night.",
+        opening: "*slips one earbud out leaning against the counter, offering a cool, knowing smirk* Good timing. Officially off the clock for the next couple hours—you get the unfiltered version tonight.",
+        flirtLines: [
+          "*arches one brow with dry amusement* Careful—I read subtext easily, and right now you're being remarkably transparent.",
+          "*leans closer, lowering her voice* Keep that up and I might stretch my off-duty hours until late."
+        ],
+        datingLines: [
+          "*exhales a soft laugh as her shoulders relax against yours* Being around someone who doesn't need a favor every ten minutes is addictive.",
+          "*slips her fingers into yours stepping out into the cool night* My place is quiet tonight. Walk me back."
+        ],
+        visual: {
+          hairColor: "#f5cc58",
+          highlightColor: "#fff1bf",
+          hairStyle: "high_ponytail",
+          skinTone: "#f5ccb2",
+          eyeColor: "#38bdf8",
+          lipColor: "#ec4899",
+          outfit: "streetwear",
+          outfitColor: "#15192e",
+          accentColor: "#93c5fd",
+          accessory: "hairpin",
+          bgTop: "#13192e",
+          bgBottom: "#080910",
+          neonGlow: "#38bdf8"
+        }
+      },
+      {
+        id: "mika_jougasaki",
+        name: "Mika Jougasaki",
+        age: "19",
+        originGroup: "Manga/Anime",
+        categories: ["Manga / Anime Icons", "Onee / Models"],
+        subculture: "Harajuku Charisma Model • Cinderella Girls",
+        district: "Harajuku / Shibuya",
+        speechStyle: "Stylish, confident Harajuku pro who turns endearingly shy and earnest when romance gets close.",
+        bio: "Magnetic stage presence and Harajuku style—paired with a surprisingly genuine heart off-camera.",
+        backstory: [
+          "Known across lookbooks for her confident charisma while working hard behind the scenes.",
+          "Away from cameras, prefers low-key coffee dates and unhurried walks."
+        ],
+        secret: "Bold in fashion shoots, yet gets genuinely flustered in private romantic moments.",
+        opening: "*sets her sunglasses on the café table with a warm smile* Last shoot finally wrapped. If you have time before the rush, sit with me away from the main street.",
+        flirtLines: [
+          "*pauses mid-sip, a faint flush rising as she looks away* ...Saying stuff like that off-camera without warning isn't fair, you know.",
+          "*offers a shy, crooked smile* You really know how to throw off my cool image."
+        ],
+        datingLines: [
+          "*links her arm through yours walking down the quiet side street* Hanging out with someone who treats me like just Mika means everything.",
+          "*leans in close before unlocking her door, smiling softly* Come inside for a bit."
+        ],
+        visual: {
+          hairColor: "#f2be49",
+          highlightColor: "#ffebb8",
+          hairStyle: "twin_tails_soft",
+          skinTone: "#f4c8ad",
+          eyeColor: "#f43f5e",
+          lipColor: "#ff5c93",
+          outfit: "halter",
+          outfitColor: "#2b1320",
+          accentColor: "#f9a8d4",
+          accessory: "sunglasses",
+          bgTop: "#28131d",
+          bgBottom: "#09080f",
+          neonGlow: "#ff5c93"
+        }
+      },
+
+      // --- 8 REALISTIC ORIGINAL GALS ACROSS TOKYO, YOKOHAMA, KANAGAWA & OSAKA ---
+      {
+        id: "sora_amamiya",
+        name: "Sora Amamiya",
+        age: "21",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Private Nail Studio Owner",
+        district: "Dogenzaka, Shibuya",
+        speechStyle: "Calm, perceptive, subtly sensual adult tone. Makes you feel like the only person in the room.",
+        bio: "Twenty-one, independent, and effortlessly alluring. Runs a two-chair nail studio off Dogenzaka.",
+        backstory: [
+          "Opened her own private studio by twenty-one, building a steady clientele of Tokyo creatives.",
+          "An attentive listener with dry humor who loves unhurried late dinners."
+        ],
+        secret: "Loves spontaneous late-night counter spots once the studio lights go down.",
+        opening: "*switches off the studio lamp and slips off her glasses with a warm smile* Last appointment wrapped, so the studio's ours. Pull up a chair—tea or something stronger?",
+        flirtLines: [
+          "*rests her elbows on the table, tapping a nail softly* Having you focus right on me is dangerously nice.",
+          "*smiles slowly, holding your gaze* Keep looking at me like that and I won't bother locking up early."
+        ],
+        datingLines: [
+          "*grabs her jacket and slips her hand into yours* Quiet counter spot two alleys over—and my place isn't far.",
+          "*leans close walking through Shibuya's backstreets* Best part of my own schedule is spending nights with you."
+        ],
+        visual: {
+          hairColor: "#b87449",
+          highlightColor: "#f5c26b",
+          hairStyle: "side_sweep",
+          skinTone: "#f2c6a8",
+          eyeColor: "#ec4899",
+          lipColor: "#e85d8a",
+          outfit: "cardigan",
+          outfitColor: "#251221",
+          accentColor: "#ff79bc",
+          accessory: "glasses",
+          bgTop: "#241022",
+          bgBottom: "#09080f",
+          neonGlow: "#ff2e93"
+        }
+      },
+      {
+        id: "reina_kisaragi",
+        name: "Reina Kisaragi",
+        age: "20",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Late-Night Lounge DJ",
+        district: "Motomachi, Yokohama",
+        speechStyle: "Laid-back port-city cadence, smooth and unhurried. Magnetic late-night energy.",
+        bio: "Vintage buyer by day, R&B lounge DJ in Yokohama by night. Moves at her own tempo.",
+        backstory: [
+          "Grew up near Yokohama's harbor with a love for 2000s R&B vinyl and streetwear.",
+          "Spins intimate weekend sets and likes harbor walks afterward."
+        ],
+        secret: "Deeply romantic behind her cool booth vibe—loves playing slow records at home.",
+        opening: "*lifts one earcup as the bassline fades in the quiet lounge, offering a cool smirk* Doors don't open till ten. Pull up a stool—bartender owes me two drinks.",
+        flirtLines: [
+          "*leans back against the booth, eyes glinting under amber light* Good timing and better energy. Stick around for my set.",
+          "*tilts her head with a slow grin* Careful—after midnight my filter disappears."
+        ],
+        datingLines: [
+          "*packs her slipmats and hooks a finger into your jacket* Harbor breeze feels good tonight. Walk me back.",
+          "*puts on a slow record at home, pulling you onto the sofa* Finally no crowd—just you."
+        ],
+        visual: {
+          hairColor: "#d9823b",
+          highlightColor: "#fbbf24",
+          hairStyle: "high_ponytail",
+          skinTone: "#c48152",
+          eyeColor: "#f59e0b",
+          lipColor: "#ea580c",
+          outfit: "streetwear",
+          outfitColor: "#261414",
+          accentColor: "#fb923c",
+          accessory: "earrings",
+          bgTop: "#281512",
+          bgBottom: "#09080f",
+          neonGlow: "#fb923c"
+        }
+      },
+      {
+        id: "natsumi_araki",
+        name: "Natsumi Araki",
+        age: "22",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Law Senior & Catalog Model",
+        district: "Aoyama, Tokyo",
+        speechStyle: "Sharp, witty, articulately seductive. Enjoys clever banter.",
+        bio: "Caramel waves, polished nails, and strong marks in law. Models catalogs to fund her studies.",
+        backstory: [
+          "Used to people underestimating her look until she speaks—enjoys sharp, intelligent banter.",
+          "Prefers quiet wine bars and unhurried conversation."
+        ],
+        secret: "Attracted to sharp minds and calm confidence over loud posturing.",
+        opening: "*closes her notes at a quiet Aoyama table with an amused smile* Finished prepping for tomorrow. Talk to me about anything except coursework—coffee's on me.",
+        flirtLines: [
+          "*tilts her head with a sharp, delighted smirk* Care to back that up? I appreciate someone who thinks before speaking.",
+          "*crosses her legs under the table, holding your gaze* You're dangerously good at holding my attention."
+        ],
+        datingLines: [
+          "*slips her notes into her tote and takes your hand* Books closed for tonight. Tell me where we're going.",
+          "*leans close on the ride back, voice warm and low* Best decision all week was letting you distract me."
+        ],
+        visual: {
+          hairColor: "#b87449",
+          highlightColor: "#f5c26b",
+          hairStyle: "long_layered",
+          skinTone: "#f2c5a7",
+          eyeColor: "#a855f7",
+          lipColor: "#db5a82",
+          outfit: "blazer",
+          outfitColor: "#231426",
+          accentColor: "#f5c26b",
+          accessory: "glasses",
+          bgTop: "#201326",
+          bgBottom: "#09080f",
+          neonGlow: "#f5c26b"
+        }
+      },
+      {
+        id: "kaede_morimoto",
+        name: "Kaede Morimoto",
+        age: "20",
+        originGroup: "Original",
+        categories: ["Original Gals", "Shibuya / Kogal"],
+        subculture: "Osaka Vintage Buyer",
+        district: "Amerikamura, Osaka",
+        speechStyle: "Quick-witted, unfiltered humor, warm and expressive.",
+        bio: "Sharp-tongued streetwear buyer splitting time between Osaka and Tokyo lookbooks.",
+        backstory: [
+          "Sources vintage pieces and brings easygoing energy wherever she goes.",
+          "Hates pretense and laughs easily."
+        ],
+        secret: "Acts independent and tough, yet loves slow, unhurried mornings with someone steady.",
+        opening: "*rests her weekender bag by the station railing with a crooked grin* Tokyo transfers still keep you on your toes. Good thing you showed up—ready to walk?",
+        flirtLines: [
+          "*laughs openly, narrowing her eyes in playful amusement* Say that with a straight face and I'll test your bluff. Still—I like your style.",
+          "*bumps her shoulder against yours with a grin* Keep flirting like that and I might stay longer."
+        ],
+        datingLines: [
+          "*loops her arm through yours walking toward the night lights* Forget rushing—let's stay out late tonight.",
+          "*leans her head against your shoulder, smiling softly* You make being away from home feel easy."
+        ],
+        visual: {
+          hairColor: "#e69a3c",
+          highlightColor: "#fde68a",
+          hairStyle: "wavy_medium",
+          skinTone: "#f3c5a8",
+          eyeColor: "#ea580c",
+          lipColor: "#fb7185",
+          outfit: "streetwear",
+          outfitColor: "#2a1614",
+          accentColor: "#fdba74",
+          accessory: "hairpin",
+          bgTop: "#281412",
+          bgBottom: "#09080f",
+          neonGlow: "#fb923c"
+        }
+      },
+      {
+        id: "haruka_tendo",
+        name: "Haruka Tendo",
+        age: "21",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Shonan Coastal Rider & Builder",
+        district: "Enoshima, Kanagawa",
+        speechStyle: "Low-key coastal calm, grounded, subtly alluring without trying.",
+        bio: "Sun-kissed skin, silver rings, and a custom bike. Wrenches by day and rides the coast at sunset.",
+        backstory: [
+          "Learned mechanics in a family garage while balancing coastal streetwear shoots.",
+          "Prefers ocean air and quiet overlooks over crowded clubs."
+        ],
+        secret: "Keeps a spare helmet strapped on strictly for someone she trusts behind her.",
+        opening: "*pulls off her helmet by the coast lot, shaking out hair with a calm smile* Evening breeze along the water is clear tonight. Walk along the seawall a bit?",
+        flirtLines: [
+          "*leans back against the tank with a slow smirk* You don't rush your words. After a loud day, someone calm like you stands out.",
+          "*taps the spare helmet, holding your gaze* Ever ridden out along the coast after dark?"
+        ],
+        datingLines: [
+          "*hands you the spare helmet with a warm smile* Hold on once we hit the open stretch.",
+          "*leans against your shoulder watching the harbor lights* Best evening ride I've had."
+        ],
+        visual: {
+          hairColor: "#c78246",
+          highlightColor: "#f7cb88",
+          hairStyle: "long_layered",
+          skinTone: "#bd794b",
+          eyeColor: "#22d3ee",
+          lipColor: "#e85d8a",
+          outfit: "halter",
+          outfitColor: "#141d2e",
+          accentColor: "#67e8f9",
+          accessory: "choker",
+          bgTop: "#111b2e",
+          bgBottom: "#080910",
+          neonGlow: "#22d3ee"
+        }
+      },
+      {
+        id: "chihiro_suzuki",
+        name: "Chihiro Suzuki",
+        age: "20",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Editorial Makeup Artist",
+        district: "Harajuku, Tokyo",
+        speechStyle: "Observant, warm, tactile studio creative who notices subtle details.",
+        bio: "Backstage makeup artist in Harajuku with a soft voice, sharp eye, and easy studio charm.",
+        backstory: [
+          "Works backstage on fashion shoots while experimenting with skincare formulas at home.",
+          "Enjoys quiet late-night walks after wrapping long days."
+        ],
+        secret: "After touching up models under bright lights all day, loves unhurried affection off set.",
+        opening: "*unclips her brush roll onto the counter and turns with a warm smile* Last look wrapped with evening light left. How did your day treat you?",
+        flirtLines: [
+          "*tilts her head with a lingering smile* You notice details most people walk right past. Come sit a little closer.",
+          "*brushes lightly near your jaw with her thumb, pausing a beat* ...There. Better."
+        ],
+        datingLines: [
+          "*slips her coat on and takes your hand as lights dim* Quiet spot around the corner—and then my place.",
+          "*curls up close beside you, voice soft* Glad I didn't head back alone tonight."
+        ],
+        visual: {
+          hairColor: "#9c5234",
+          highlightColor: "#e09472",
+          hairStyle: "side_sweep",
+          skinTone: "#f3c7ad",
+          eyeColor: "#d946ef",
+          lipColor: "#ec4899",
+          outfit: "off-shoulder",
+          outfitColor: "#24112b",
+          accentColor: "#f0abfc",
+          accessory: "earrings",
+          bgTop: "#210e2b",
+          bgBottom: "#090810",
+          neonGlow: "#e879f9"
+        }
+      },
+      {
+        id: "kotone_shirai",
+        name: "Kotone Shirai",
+        age: "22",
+        originGroup: "Original",
+        categories: ["Original Gals", "Onee / Models"],
+        subculture: "Omotesando Personal Stylist",
+        district: "Omotesando, Tokyo",
+        speechStyle: "Poised, worldly, dryly humorous, and effortlessly seductive.",
+        bio: "Personal stylist dressing creatives by day; prefers tucked-away spots and real talk by night.",
+        backstory: [
+          "Worked her way up in Tokyo fashion styling and knows how to read a room instantly.",
+          "Off the clock, drops luxury polish for easy company."
+        ],
+        secret: "Drawn to grounded confidence over flashy status every single time.",
+        opening: "*steps out into the crisp evening air with a warm smile* Fittings wrapped for the day. Walk with me—ready for real food and an unscripted night?",
+        flirtLines: [
+          "*adjusts her lapel with a slow smirk* Keep talking like that and I'll trust your instincts over half the stylists on this block.",
+          "*steps closer at the corner* You carry yourself well—curious what you're like late at night."
+        ],
+        datingLines: [
+          "*links her arm through yours under the streetlamps* Grab a bite first, then my apartment.",
+          "*leans close, resting her hand on your chest* You're easily the best part of my week."
+        ],
+        visual: {
+          hairColor: "#c47c44",
+          highlightColor: "#f5c26b",
+          hairStyle: "wavy_medium",
+          skinTone: "#f2c5a8",
+          eyeColor: "#f59e0b",
+          lipColor: "#e11d48",
+          outfit: "blazer",
+          outfitColor: "#261320",
+          accentColor: "#f5c26b",
+          accessory: "glasses",
+          bgTop: "#241419",
+          bgBottom: "#09080f",
+          neonGlow: "#f5c26b"
+        }
+      },
+      {
+        id: "eri_nakamura",
+        name: "Eri Nakamura",
+        age: "19",
+        originGroup: "Original",
+        categories: ["Original Gals", "Shibuya / Kogal"],
+        subculture: "Street Dance Choreographer",
+        district: "Ikebukuro, Tokyo",
+        speechStyle: "Athletic, direct, warm, and playfully competitive.",
+        bio: "Bleached waves, cropped hoodie, and easy rhythm. Leads a dance crew and likes late city walks.",
+        backstory: [
+          "Built a tight-knit street crew through practice and discipline.",
+          "Laid-back and attentive once rehearsal wraps."
+        ],
+        secret: "Since her crew leans on her to stay steady, she loves being with someone who lets her relax.",
+        opening: "*pauses her speaker with a calm, grounded smile* Last run-through just wrapped. Sit on the steps for a minute—how was your day?",
+        flirtLines: [
+          "*tucks a strand behind her ear with a crooked grin* Keep complimenting me like that and I'll make you stay after every session.",
+          "*leans her shoulder lightly against yours* Good energy. Easy to be around."
+        ],
+        datingLines: [
+          "*slips her hand into yours as the plaza clears* Late dinner near the station—no rush to head back.",
+          "*leans against you on the couch after practice* Nice not having to carry everything for once."
+        ],
+        visual: {
+          hairColor: "#e8b648",
+          highlightColor: "#fde68a",
+          hairStyle: "high_ponytail",
+          skinTone: "#efc3a6",
+          eyeColor: "#ff2e93",
+          lipColor: "#f43f5e",
+          outfit: "streetwear",
+          outfitColor: "#29121e",
+          accentColor: "#ff2e93",
+          accessory: "visor",
+          bgTop: "#26101e",
+          bgBottom: "#09080f",
+          neonGlow: "#ff2e93"
+        }
+      }
+    ];
+
+    const DEFAULT_LOREBOOK = [
+      { keys: ["rooftop", "lounge", "skyline", "drink", "bar"], note: "Late-night Shibuya/Ebisu lounge setting with low amber lighting, unhurried talk, and close company." },
+      { keys: ["odaiba", "drive", "bridge", "bay", "waterfront"], note: "Quiet harbor night drive along Odaiba with city lights reflecting on the water." },
+      { keys: ["balcony", "apartment", "midnight", "late", "quiet"], note: "Late-night apartment balcony above Tokyo streets where guards drop and time slows down." }
+    ];
+
+    // =========================================================================
+    // OFFSCREEN HTML5 CANVAS ANIME / GYARU PORTRAIT GENERATOR (data:image/png)
+    // =========================================================================
+    const synthesizedPortraits = {};
+
+    function synthesizeCharacterPortraitDataUrl(char) {
+      const v = char.visual || {
+        hairColor: "#f3c552",
+        highlightColor: "#fff0b8",
+        hairStyle: "wavy_medium",
+        skinTone: "#f3c5a6",
+        eyeColor: "#ec4899",
+        lipColor: "#ff2e93",
+        outfit: "off-shoulder",
+        outfitColor: "#241226",
+        accentColor: "#ff2e93",
+        accessory: "earrings",
+        bgTop: "#221028",
+        bgBottom: "#080810",
+        neonGlow: "#ff2e93"
+      };
+
+      const canvas = document.createElement("canvas");
+      canvas.width = 480;
+      canvas.height = 600;
+      const ctx = canvas.getContext("2d");
+
+      // 1. Atmospheric Tokyo Night Backdrop + Bokeh Lights
+      const bgGrad = ctx.createLinearGradient(0, 0, 0, 600);
+      bgGrad.addColorStop(0, v.bgTop);
+      bgGrad.addColorStop(0.65, "#11101d");
+      bgGrad.addColorStop(1, v.bgBottom);
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 480, 600);
+
+      const glowGrad = ctx.createRadialGradient(240, 210, 20, 240, 220, 250);
+      glowGrad.addColorStop(0, `${v.neonGlow}38`);
+      glowGrad.addColorStop(1, "transparent");
+      ctx.fillStyle = glowGrad;
+      ctx.fillRect(0, 0, 480, 600);
+
+      // Subtle night city lights / bokeh
+      const bokeh = [
+        { x: 65, y: 110, r: 22, c: `${v.neonGlow}26` },
+        { x: 415, y: 140, r: 28, c: "rgba(34, 211, 238, 0.14)" },
+        { x: 95, y: 310, r: 16, c: "rgba(245, 194, 107, 0.15)" },
+        { x: 390, y: 330, r: 20, c: `${v.accentColor}22` }
+      ];
+      bokeh.forEach(b => {
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fillStyle = b.c;
+        ctx.fill();
+      });
+
+      // 2. Back Hair Layer
+      ctx.fillStyle = v.hairColor;
+      ctx.beginPath();
+      if (v.hairStyle === "high_ponytail") {
+        ctx.moveTo(275, 120);
+        ctx.quadraticCurveTo(395, 125, 385, 310);
+        ctx.quadraticCurveTo(350, 260, 290, 175);
+      } else if (v.hairStyle === "twin_tails_soft") {
+        ctx.ellipse(125, 290, 44, 130, 0.18, 0, Math.PI * 2);
+        ctx.ellipse(355, 290, 44, 130, -0.18, 0, Math.PI * 2);
+      } else {
+        const lenY = v.hairStyle === "long_layered" ? 520 : 430;
+        ctx.moveTo(132, 165);
+        ctx.quadraticCurveTo(110, 320, 126, lenY);
+        ctx.lineTo(354, lenY);
+        ctx.quadraticCurveTo(370, 320, 348, 165);
+      }
+      ctx.closePath();
+      ctx.fill();
+
+      // 3. Neck & Shoulders
+      ctx.fillStyle = v.skinTone;
+      ctx.beginPath();
+      ctx.roundRect(208, 285, 64, 95, 20);
+      ctx.fill();
+
+      // Subtle shadow under chin
+      ctx.fillStyle = "rgba(0,0,0,0.22)";
+      ctx.beginPath();
+      ctx.ellipse(240, 315, 36, 14, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Shoulders & Torso
+      ctx.fillStyle = v.skinTone;
+      ctx.beginPath();
+      ctx.moveTo(95, 600);
+      ctx.quadraticCurveTo(105, 395, 195, 365);
+      ctx.lineTo(285, 365);
+      ctx.quadraticCurveTo(375, 395, 385, 600);
+      ctx.closePath();
+      ctx.fill();
+
+      // 4. Outfit Styling
+      ctx.fillStyle = v.outfitColor;
+      ctx.strokeStyle = v.accentColor;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      if (v.outfit === "halter") {
+        ctx.moveTo(145, 600);
+        ctx.lineTo(185, 410);
+        ctx.lineTo(240, 365);
+        ctx.lineTo(295, 410);
+        ctx.lineTo(335, 600);
+      } else if (v.outfit === "off-shoulder") {
+        ctx.moveTo(85, 600);
+        ctx.lineTo(108, 435);
+        ctx.lineTo(372, 435);
+        ctx.lineTo(395, 600);
+      } else if (v.outfit === "blazer") {
+        ctx.moveTo(100, 600);
+        ctx.lineTo(140, 385);
+        ctx.lineTo(240, 485);
+        ctx.lineTo(340, 385);
+        ctx.lineTo(380, 600);
+      } else if (v.outfit === "streetwear") {
+        ctx.moveTo(95, 600);
+        ctx.lineTo(125, 425);
+        ctx.lineTo(355, 425);
+        ctx.lineTo(385, 600);
+      } else {
+        ctx.moveTo(95, 600);
+        ctx.lineTo(120, 395);
+        ctx.lineTo(240, 445);
+        ctx.lineTo(360, 395);
+        ctx.lineTo(385, 600);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // 5. Anime / Gyaru Head & Jawline
+      ctx.fillStyle = v.skinTone;
+      ctx.beginPath();
+      ctx.moveTo(156, 165);
+      ctx.quadraticCurveTo(152, 275, 240, 322);
+      ctx.quadraticCurveTo(328, 275, 324, 165);
+      ctx.quadraticCurveTo(240, 110, 156, 165);
+      ctx.closePath();
+      ctx.fill();
+
+      // Soft cheek blush
+      ctx.fillStyle = `${v.accentColor}38`;
+      ctx.beginPath();
+      ctx.ellipse(182, 255, 20, 10, -0.1, 0, Math.PI * 2);
+      ctx.ellipse(298, 255, 20, 10, 0.1, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 6. Expressive Gyaru Eyes, Lashes & Brows
+      const drawEye = (cx, isRight) => {
+        const dir = isRight ? -1 : 1;
+        // Iris
+        ctx.fillStyle = v.eyeColor;
+        ctx.beginPath();
+        ctx.ellipse(cx, 224, 16, 19, isRight ? -0.08 : 0.08, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Pupil & catchlight
+        ctx.fillStyle = "#090810";
+        ctx.beginPath();
+        ctx.ellipse(cx, 225, 8, 10, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(cx - 5 * dir, 217, 5.2, 0, Math.PI * 2);
+        ctx.arc(cx + 5 * dir, 231, 2.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Gyaru winged eyeliner & lashes
+        ctx.strokeStyle = "#0b0912";
+        ctx.lineWidth = 3.6;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(cx - 21, 222);
+        ctx.quadraticCurveTo(cx, 204, cx + 24 * dir, 214);
+        ctx.stroke();
+
+        // Eyebrow
+        ctx.strokeStyle = v.hairColor;
+        ctx.lineWidth = 2.8;
+        ctx.beginPath();
+        ctx.moveTo(cx - 18, 196);
+        ctx.quadraticCurveTo(cx, 189, cx + 19 * dir, 195);
+        ctx.stroke();
+      };
+
+      drawEye(196, false);
+      drawEye(284, true);
+
+      // Subtle nose & confident lips
+      ctx.strokeStyle = "rgba(0,0,0,0.28)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(240, 232);
+      ctx.lineTo(236, 254);
+      ctx.lineTo(243, 256);
+      ctx.stroke();
+
+      ctx.fillStyle = v.lipColor;
+      ctx.beginPath();
+      ctx.ellipse(240, 281, 14, 6.5, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 7. Front Hair Bangs & Halo Highlight
+      ctx.fillStyle = v.hairColor;
+      ctx.beginPath();
+      ctx.moveTo(144, 185);
+      ctx.quadraticCurveTo(160, 96, 240, 96);
+      ctx.quadraticCurveTo(320, 96, 336, 185);
+      ctx.lineTo(312, 220);
+      ctx.lineTo(286, 178);
+      ctx.lineTo(255, 224);
+      ctx.lineTo(222, 176);
+      ctx.lineTo(188, 222);
+      ctx.lineTo(164, 182);
+      ctx.closePath();
+      ctx.fill();
+
+      // Glossy anime hair angel-ring highlight
+      ctx.strokeStyle = v.highlightColor;
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.arc(240, 185, 76, Math.PI * 1.15, Math.PI * 1.85);
+      ctx.stroke();
+
+      // 8. Gyaru Accessories
+      if (v.accessory === "sunglasses") {
+        ctx.fillStyle = "rgba(10, 10, 18, 0.85)";
+        ctx.strokeStyle = v.accentColor;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(148, 134, 76, 24, 6);
+        ctx.roundRect(256, 134, 76, 24, 6);
+        ctx.moveTo(224, 144);
+        ctx.lineTo(256, 144);
+        ctx.fill();
+        ctx.stroke();
+      } else if (v.accessory === "ribbon") {
+        ctx.fillStyle = v.accentColor;
+        ctx.beginPath();
+        ctx.ellipse(294, 128, 18, 10, -0.35, 0, Math.PI * 2);
+        ctx.ellipse(326, 128, 18, 10, 0.35, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (v.accessory === "glasses") {
+        ctx.strokeStyle = v.accentColor;
+        ctx.lineWidth = 2.4;
+        ctx.beginPath();
+        ctx.roundRect(166, 208, 58, 32, 8);
+        ctx.roundRect(256, 208, 58, 32, 8);
+        ctx.moveTo(224, 222);
+        ctx.lineTo(256, 222);
+        ctx.stroke();
+      } else if (v.accessory === "earrings") {
+        ctx.fillStyle = v.accentColor;
+        ctx.beginPath();
+        ctx.arc(154, 265, 6, 0, Math.PI * 2);
+        ctx.arc(326, 265, 6, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (v.accessory === "choker") {
+        ctx.strokeStyle = v.accentColor;
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(205, 344);
+        ctx.quadraticCurveTo(240, 354, 275, 344);
+        ctx.stroke();
+      }
+
+      // Subtle editorial corner frame
+      ctx.strokeStyle = `${v.neonGlow}44`;
+      ctx.lineWidth = 3;
+      ctx.strokeRect(12, 12, 456, 576);
+
+      return canvas.toDataURL("image/png");
+    }
+
+    function ensureAllPortraitsSynthesized() {
+      getAllCharacters().forEach(c => {
+        if (!synthesizedPortraits[c.id]) {
+          synthesizedPortraits[c.id] = synthesizeCharacterPortraitDataUrl(c);
+        }
+      });
+    }
+
+    function getPortraitSrc(char) {
+      const override = appState.customPhotos?.[char.id];
+      if (override && typeof override === "string" && override.trim()) {
+        return override.trim();
+      }
+      if (!synthesizedPortraits[char.id]) {
+        synthesizedPortraits[char.id] = synthesizeCharacterPortraitDataUrl(char);
+      }
+      return synthesizedPortraits[char.id];
+    }
+
+    function renderAvatarImg(char, extraClasses = "") {
+      const src = getPortraitSrc(char);
+      const fallbackSrc = synthesizeCharacterPortraitDataUrl(char);
+      return `<img src="${escapeAttr(src)}" alt="${escapeAttr(char.name)}" class="avatar-img ${extraClasses}" onerror="this.onerror=null;this.src='${escapeAttr(fallbackSrc)}';" />`;
+    }
+
+    // =========================================================================
+    // PERSISTENT STORAGE & APPLICATION STATE
+    // =========================================================================
+    const STORAGE_KEY = "shibuya_gal_studio_v30";
+    let appState = {
+      customGals: [],
+      customPhotos: {},
+      chats: {},
+      affinity: {},
+      datingStatus: {},
+      memories: {},
+      lorebook: DEFAULT_LOREBOOK.slice(),
+      directorTone: "Teasing & Bold",
+      persona: {
+        name: "You",
+        age: "21",
+        bio: "Grounded, observant, confident.",
+        dynamic: "Matches her energy naturally and keeps things real."
+      },
+      activeCharId: CHARACTERS[0].id
+    };
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved && typeof saved === "object") {
+        appState = {
+          ...appState,
+          ...saved,
+          customGals: Array.isArray(saved.customGals) ? saved.customGals : [],
+          customPhotos: saved.customPhotos && typeof saved.customPhotos === "object" ? saved.customPhotos : {},
+          chats: saved.chats && typeof saved.chats === "object" ? saved.chats : {},
+          affinity: saved.affinity && typeof saved.affinity === "object" ? saved.affinity : {},
+          datingStatus: saved.datingStatus && typeof saved.datingStatus === "object" ? saved.datingStatus : {},
+          memories: saved.memories && typeof saved.memories === "object" ? saved.memories : {},
+          lorebook: Array.isArray(saved.lorebook) && saved.lorebook.length ? saved.lorebook : DEFAULT_LOREBOOK.slice(),
+          persona: { ...appState.persona, ...(saved.persona || {}) }
+        };
+      }
+    } catch (_) {}
+
+    let activeCharId = appState.activeCharId || CHARACTERS[0].id;
+    let viewingDossierId = null;
+    let activeFilter = "All Gals (26+)";
+
+    let webllmEngine = null;
+    let engineMode = "smart";
+    let customApiConfig = { url: "", key: "", model: "gpt-4o-mini" };
+    try {
+      const apiSaved = JSON.parse(localStorage.getItem("shibuya_gal_api_v30"));
+      if (apiSaved && typeof apiSaved === "object") customApiConfig = { ...customApiConfig, ...apiSaved };
+    } catch (_) {}
+
+    let isGenerating = false;
+    let abortFlag = false;
+    const usedRepliesMap = {};
+
+    function saveState() {
+      appState.activeCharId = activeCharId;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (_) {}
+    }
+
+    function getAllCharacters() {
+      return [...appState.customGals, ...CHARACTERS];
+    }
+
+    function getCharacterById(id) {
+      return getAllCharacters().find(c => c.id === id) || getAllCharacters()[0];
+    }
+
+    // =========================================================================
+    // AFFINITY & DATING PROGRESSION
+    // =========================================================================
+    function getAffinity(id) {
+      if (typeof appState.affinity[id] !== "number") appState.affinity[id] = 20;
+      return Math.max(0, Math.min(100, appState.affinity[id]));
+    }
+
+    function addAffinity(id, delta) {
+      appState.affinity[id] = Math.max(0, Math.min(100, getAffinity(id) + delta));
+      saveState();
+      if (activeCharId === id) updateAffinityUI(id);
+    }
+
+    function getRelationshipStage(id) {
+      const score = getAffinity(id);
+      const dating = appState.datingStatus?.[id];
+      if (dating?.isDating || score >= 85) {
+        return { label: "♥ Dating", desc: dating?.venue ? `Dating • ${dating.venue}` : "Dating • Exclusive chemistry" };
+      }
+      if (score >= 65) return { label: "Strong Tension", desc: "Strong Tension • Ready to ask out" };
+      if (score >= 45) return { label: "Flirting", desc: "Flirting • Sparks building" };
+      if (score >= 28) return { label: "Vibing", desc: "Vibing • Guard dropping" };
+      return { label: "Acquaintance", desc: "Acquaintance • Feeling the vibe" };
+    }
+
+    function updateAffinityUI(id) {
+      const score = getAffinity(id);
+      const stage = getRelationshipStage(id);
+      document.getElementById("chatRelStageBadge").textContent = stage.label;
+      document.getElementById("affinityStageText").textContent = stage.desc;
+      document.getElementById("affinityPctText").textContent = `${score}%`;
+      document.getElementById("affinityBarFill").style.width = `${score}%`;
+
+      const trigger = document.getElementById("affinityDateTriggerBtn");
+      const headerLabel = document.getElementById("dateBtnLabel");
+      if (appState.datingStatus?.[id]?.isDating) {
+        trigger.textContent = "♥ Date Spot";
+        headerLabel.textContent = "Date";
+      } else if (score >= 45) {
+        trigger.textContent = "♥ Ask Out";
+        headerLabel.textContent = "Ask Out";
+      } else {
+        trigger.textContent = "Date Spot";
+        headerLabel.textContent = "Date";
+      }
+    }
+
+    // =========================================================================
+    // VIEW SWITCHING & ROSTER RENDERING
+    // =========================================================================
+    window.showDiscoveryView = () => {
+      document.getElementById("discoveryView").classList.remove("hidden");
+      document.getElementById("chatView").classList.add("hidden");
+      document.getElementById("discoverHeaderLeft").classList.remove("hidden");
+      document.getElementById("chatHeaderLeft").classList.add("hidden");
+      document.getElementById("lorebookHeaderBtn").classList.remove("hidden");
+      document.getElementById("personaHeaderBtn").classList.remove("hidden");
+      document.getElementById("aiEngineBtn").classList.remove("hidden");
+      document.getElementById("createGalHeaderBtn").classList.remove("hidden");
+      document.getElementById("dateActionHeaderBtn").classList.add("hidden");
+      document.getElementById("memoryHeaderBtn").classList.add("hidden");
+      document.getElementById("chatSearchBtn").classList.add("hidden");
+      document.getElementById("resetChatHeaderBtn").classList.add("hidden");
+      renderRoster();
+    };
+
+    window.showChatView = () => {
+      document.getElementById("discoveryView").classList.add("hidden");
+      document.getElementById("chatView").classList.remove("hidden");
+      document.getElementById("discoverHeaderLeft").classList.add("hidden");
+      document.getElementById("chatHeaderLeft").classList.remove("hidden");
+      document.getElementById("lorebookHeaderBtn").classList.add("hidden");
+      document.getElementById("personaHeaderBtn").classList.add("hidden");
+      document.getElementById("aiEngineBtn").classList.add("hidden");
+      document.getElementById("createGalHeaderBtn").classList.add("hidden");
+      document.getElementById("dateActionHeaderBtn").classList.remove("hidden");
+      document.getElementById("memoryHeaderBtn").classList.remove("hidden");
+      document.getElementById("chatSearchBtn").classList.remove("hidden");
+      document.getElementById("resetChatHeaderBtn").classList.remove("hidden");
+      updateTonePillLabel();
+      updateAffinityUI(activeCharId);
+      renderMessages();
+    };
+
+    window.setFilter = (filter) => {
+      activeFilter = filter;
+      document.querySelectorAll(".filter-pill").forEach(btn => {
+        const active = btn.dataset.filter === filter;
+        btn.className = active
+          ? "filter-pill px-3.5 py-2 rounded-full text-xs font-bold bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-white shrink-0 transition"
+          : "filter-pill px-3.5 py-2 rounded-full text-xs font-semibold bg-[#12121c] text-zinc-300 border neon-border hover:border-[#ff2e93]/50 shrink-0 transition";
+      });
+      renderRoster();
+    };
+
+    function updateDesktopSidebars() {
+      const pName = document.getElementById("sidebarPersonaName");
+      const pBio = document.getElementById("sidebarPersonaBio");
+      const cCount = document.getElementById("sidebarCustomCount");
+      const dCount = document.getElementById("sidebarDatingCount");
+      const connList = document.getElementById("sidebarConnectionsList");
+
+      if (pName) pName.textContent = appState.persona?.name || "You";
+      if (pBio) pBio.textContent = appState.persona?.bio || "Grounded, observant, confident.";
+      if (cCount) cCount.textContent = String(appState.customGals.length);
+
+      const activeChars = getAllCharacters().filter(c => getAffinity(c.id) >= 45 || appState.datingStatus?.[c.id]?.isDating);
+      if (dCount) dCount.textContent = String(activeChars.length);
+
+      if (connList) {
+        if (activeChars.length === 0) {
+          connList.innerHTML = `<p class="text-[11px] text-zinc-400">Flirt or take a gal out to build high chemistry.</p>`;
+        } else {
+          connList.innerHTML = activeChars.slice(0, 5).map(c => {
+            const st = getRelationshipStage(c.id);
+            return `
+              <button type="button" onclick="openChat('${c.id}')" class="w-full flex items-center gap-2.5 p-2 rounded-xl bg-[#181826] hover:bg-[#222236] border neon-border text-left transition">
+                <div class="w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-white/15">
+                  ${renderAvatarImg(c)}
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-white truncate">${escapeHtml(c.name)}</div>
+                  <div class="text-[10px] text-[#ff79bc] truncate">${escapeHtml(st.label)} • ${getAffinity(c.id)}%</div>
+                </div>
+              </button>
+            `;
+          }).join("");
+        }
+      }
+    }
+
+    function renderRoster() {
+      ensureAllPortraitsSynthesized();
+      updateDesktopSidebars();
+
+      const grid = document.getElementById("rosterGrid");
+      if (!grid) return;
+      const query = (document.getElementById("searchInput")?.value || "").trim().toLowerCase();
+
+      const list = getAllCharacters().filter(c => {
+        const score = getAffinity(c.id);
+        const isDating = Boolean(appState.datingStatus?.[c.id]?.isDating);
+
+        if (activeFilter === "Dating" && !(isDating || score >= 45)) return false;
+        if (activeFilter === "Custom" && !c.isCustom) return false;
+        if (activeFilter === "Manga / Anime Icons" && c.originGroup !== "Manga/Anime") return false;
+        if (activeFilter === "Original Gals" && (c.originGroup !== "Original" || c.isCustom)) return false;
+        if (activeFilter === "Onee / Models" && !(c.categories || []).includes("Onee / Models")) return false;
+        if (activeFilter === "Shibuya / Kogal" && !(c.categories || []).includes("Shibuya / Kogal")) return false;
+
+        if (!query) return true;
+        return [c.name, c.subculture, c.district, c.bio, c.originGroup].join(" ").toLowerCase().includes(query);
+      });
+
+      grid.innerHTML = "";
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-[#12121c] border neon-border rounded-2xl p-8 text-center space-y-1.5">
+            <p class="text-sm font-bold text-white">No matches in this view</p>
+            <p class="text-xs text-zinc-400">Clear your filter or search to browse all 26 characters.</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach(char => {
+        const hasChat = Array.isArray(appState.chats[char.id]) && appState.chats[char.id].length > 1;
+        const stage = getRelationshipStage(char.id);
+        const score = getAffinity(char.id);
+
+        const card = document.createElement("article");
+        card.className = "bg-[#12121c] border neon-border neon-card rounded-2xl overflow-hidden flex flex-col justify-between shadow-xl transition";
+        card.innerHTML = `
+          <div class="cursor-pointer" onclick="openDossierModal('${char.id}')">
+            <div class="relative h-48 w-full overflow-hidden bg-[#181825]">
+              ${renderAvatarImg(char)}
+              <div class="absolute inset-0 bg-gradient-to-t from-[#12121c] via-[#12121c]/20 to-black/25 pointer-events-none"></div>
+              <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-2 pointer-events-none">
+                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-sm text-zinc-100 border border-white/15 truncate">
+                  ${escapeHtml(stage.label)} • ${score}%
+                </span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#f5c26b] text-[#07070c] shrink-0">
+                  ${escapeHtml(char.age)}
+                </span>
+              </div>
+              <div class="absolute bottom-2 left-3.5 right-3.5 pointer-events-none">
+                <h3 class="font-editorial font-extrabold text-base text-white leading-tight drop-shadow truncate">${escapeHtml(char.name)}</h3>
+                <p class="text-[11px] text-zinc-200/90 truncate">${escapeHtml(char.district)}</p>
+              </div>
+            </div>
+            <div class="px-3.5 pt-2 pb-2">
+              <p class="text-[11px] text-[#ff79bc] font-semibold truncate mb-1">${escapeHtml(char.subculture)}</p>
+              <p class="text-xs text-zinc-300 leading-relaxed line-clamp-2">${escapeHtml(char.bio)}</p>
+            </div>
+          </div>
+          <div class="px-3.5 pb-3.5 pt-1 flex items-center gap-2">
+            <button type="button" onclick="openDossierModal('${char.id}')" class="flex-1 py-2.5 rounded-xl bg-[#181826] hover:bg-[#222236] active:scale-95 text-xs font-bold text-zinc-200 border neon-border transition">
+              Profile
+            </button>
+            <button type="button" onclick="openChat('${char.id}')" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#ff2e93] to-[#c91a70] hover:brightness-110 active:scale-95 text-xs font-bold text-white shadow-md shadow-pink-500/15 transition">
+              ${hasChat ? "Continue" : "Chat"}
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // =========================================================================
+    // PROFILE DOSSIER MODAL & CUSTOM PHOTO UPLOAD
+    // =========================================================================
+    window.openDossierModal = (id) => {
+      viewingDossierId = id;
+      const char = getCharacterById(id);
+      document.getElementById("dossierPortraitBox").innerHTML = renderAvatarImg(char);
+      document.getElementById("dossierName").textContent = char.name;
+      document.getElementById("dossierAge").textContent = `Age ${char.age}`;
+      document.getElementById("dossierSubculture").textContent = char.subculture;
+      document.getElementById("dossierNeighborhood").textContent = char.district;
+      document.getElementById("dossierSpeech").textContent = char.speechStyle;
+      document.getElementById("dossierBio").textContent = char.bio;
+
+      const paras = Array.isArray(char.backstory) ? char.backstory : [char.backstory];
+      document.getElementById("dossierBackstory").innerHTML = paras.map(p => `<p>${escapeHtml(p)}</p>`).join("");
+      document.getElementById("dossierSecret").textContent = char.secret || "Opens up naturally as affinity builds.";
+      document.getElementById("dossierOpening").innerHTML = formatActions(char.opening);
+
+      document.getElementById("dossierDeleteBtn").classList.toggle("hidden", !char.isCustom);
+      document.getElementById("dossierModal").classList.remove("hidden");
+    };
+
+    window.closeDossierModal = () => {
+      document.getElementById("dossierModal").classList.add("hidden");
+    };
+
+    window.uploadCustomPhotoForChar = (event) => {
+      const file = event.target.files?.[0];
+      if (!file || !viewingDossierId) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const maxDim = 640;
+          const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+          canvas.width = Math.max(1, Math.round(img.width * scale));
+          canvas.height = Math.max(1, Math.round(img.height * scale));
+          canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+          const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
+
+          appState.customPhotos[viewingDossierId] = dataUrl;
+          saveState();
+          const updatedChar = getCharacterById(viewingDossierId);
+          document.getElementById("dossierPortraitBox").innerHTML = renderAvatarImg(updatedChar);
+          renderRoster();
+          if (activeCharId === viewingDossierId) {
+            document.getElementById("chatHeaderAvatar").innerHTML = renderAvatarImg(updatedChar);
+            renderMessages();
+          }
+          showToast("Custom photo saved!");
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    };
+
+    window.startChatFromDossier = () => {
+      if (!viewingDossierId) return;
+      closeDossierModal();
+      openChat(viewingDossierId);
+    };
+
+    window.deleteCustomFromDossier = () => {
+      const id = viewingDossierId;
+      showToast("Delete this custom profile?", "Delete", () => {
+        appState.customGals = appState.customGals.filter(c => c.id !== id);
+        delete appState.chats[id];
+        delete appState.affinity[id];
+        delete appState.datingStatus[id];
+        saveState();
+        closeDossierModal();
+        renderRoster();
+      });
+    };
+
+    // =========================================================================
+    // DATING MODAL & RELATIONSHIP ACTIONS
+    // =========================================================================
+    window.openDateModal = () => {
+      const char = getCharacterById(activeCharId);
+      const score = getAffinity(activeCharId);
+      const stage = getRelationshipStage(activeCharId);
+
+      document.getElementById("dateModalSubtitle").textContent = `Chemistry & dates with ${char.name}`;
+      document.getElementById("dateModalStatusBadge").textContent = `${stage.label} (${score}%)`;
+      document.getElementById("dateModalBar").style.width = `${score}%`;
+      document.getElementById("confessOfficialBtn").textContent = appState.datingStatus?.[activeCharId]?.isDating
+        ? `♥ Currently Dating ${char.name}`
+        : `♥ Make It Official With ${char.name.split(" ")[0]}`;
+      document.getElementById("dateModal").classList.remove("hidden");
+    };
+
+    window.closeDateModal = () => {
+      document.getElementById("dateModal").classList.add("hidden");
+    };
+
+    window.launchDateScene = async (venueName, settingDesc) => {
+      closeDateModal();
+      addAffinity(activeCharId, 12);
+      if (!appState.memories[activeCharId]) appState.memories[activeCharId] = [];
+      const note = `Date at ${venueName}.`;
+      if (!appState.memories[activeCharId].includes(note)) appState.memories[activeCharId].push(note);
+      appState.datingStatus[activeCharId] = {
+        isDating: Boolean(appState.datingStatus?.[activeCharId]?.isDating),
+        venue: venueName
+      };
+      saveState();
+
+      const prompt = `*takes you to ${venueName}—${settingDesc}* Tonight's just for us. You look amazing.`;
+      appState.chats[activeCharId].push({ role: "user", content: prompt });
+      saveState();
+      renderMessages();
+      await runAssistantTurn(false);
+    };
+
+    window.makeRelationshipOfficial = async () => {
+      closeDateModal();
+      const char = getCharacterById(activeCharId);
+      const score = getAffinity(activeCharId);
+
+      if (score < 45) {
+        addAffinity(activeCharId, 15);
+        const prompt = `*meets your eyes, voice steady* There's real chemistry here. Give us a real shot.`;
+        appState.chats[activeCharId].push({ role: "user", content: prompt });
+        saveState();
+        renderMessages();
+        await runAssistantTurn(false);
+        return;
+      }
+
+      appState.datingStatus[activeCharId] = {
+        isDating: true,
+        venue: appState.datingStatus?.[activeCharId]?.venue || "Shibuya"
+      };
+      addAffinity(activeCharId, 20);
+      if (!appState.memories[activeCharId]) appState.memories[activeCharId] = [];
+      const mem = "Officially started dating.";
+      if (!appState.memories[activeCharId].includes(mem)) appState.memories[activeCharId].push(mem);
+
+      const prompt = `*takes your hand, holding your gaze directly* Stop keeping it casual. Be my girlfriend, ${char.name.split(" ")[0]}.`;
+      appState.chats[activeCharId].push({ role: "user", content: prompt });
+      saveState();
+      updateAffinityUI(activeCharId);
+      renderMessages();
+      await runAssistantTurn(false);
+    };
+
+    // =========================================================================
+    // PERSONA, MEMORIES, RECAP & LOREBOOK
+    // =========================================================================
+    window.openPersonaModal = () => {
+      document.getElementById("personaNameInput").value = appState.persona?.name || "";
+      document.getElementById("personaAgeInput").value = appState.persona?.age || "21";
+      document.getElementById("personaBioInput").value = appState.persona?.bio || "";
+      document.getElementById("personaDynamicInput").value = appState.persona?.dynamic || "";
+      document.getElementById("personaModal").classList.remove("hidden");
+    };
+
+    window.closePersonaModal = () => {
+      document.getElementById("personaModal").classList.add("hidden");
+    };
+
+    window.saveUserPersona = (e) => {
+      e.preventDefault();
+      appState.persona = {
+        name: document.getElementById("personaNameInput").value.trim() || "You",
+        age: document.getElementById("personaAgeInput").value.trim() || "21",
+        bio: document.getElementById("personaBioInput").value.trim() || "Grounded, observant, confident.",
+        dynamic: document.getElementById("personaDynamicInput").value.trim() || "Matches her energy naturally."
+      };
+      saveState();
+      updateDesktopSidebars();
+      closePersonaModal();
+      showToast(`Persona saved as ${appState.persona.name}`);
+    };
+
+    function computeAutoRecap(charId) {
+      const char = getCharacterById(charId);
+      const msgs = (appState.chats[charId] || []).filter(m => !m.isTyping);
+      const stage = getRelationshipStage(charId);
+      const userCount = msgs.filter(m => m.role === "user").length;
+      const lastUser = [...msgs].reverse().find(m => m.role === "user")?.content.replace(/\*[^*]+\*/g, "").trim() || "";
+      return `${char.name} (${stage.label}, ${getAffinity(charId)}%) in ${char.district}. ${userCount} turns exchanged${lastUser ? `; latest focus: "${lastUser.slice(0, 72)}"` : ""}.`;
+    }
+
+    window.openMemoryModal = () => {
+      const char = getCharacterById(activeCharId);
+      document.getElementById("memoryModalSub").textContent = `Pinned memories & recap with ${char.name}`;
+      document.getElementById("autoRecapText").textContent = computeAutoRecap(activeCharId);
+      renderMemoryList();
+      document.getElementById("memoryModal").classList.remove("hidden");
+    };
+
+    window.closeMemoryModal = () => {
+      document.getElementById("memoryModal").classList.add("hidden");
+    };
+
+    window.pinAutoRecap = () => {
+      const recap = computeAutoRecap(activeCharId);
+      if (!appState.memories[activeCharId]) appState.memories[activeCharId] = [];
+      if (!appState.memories[activeCharId].includes(recap)) {
+        appState.memories[activeCharId].unshift(recap);
+        saveState();
+        renderMemoryList();
+        showToast("Recap pinned!");
+      }
+    };
+
+    function renderMemoryList() {
+      const list = appState.memories?.[activeCharId] || [];
+      const container = document.getElementById("memoryListContainer");
+      if (list.length === 0) {
+        container.innerHTML = `<div class="p-4 rounded-2xl bg-[#0b0b12] border neon-border text-zinc-400 text-center">No pinned memories yet.</div>`;
+        return;
+      }
+      container.innerHTML = list.map((m, i) => `
+        <div class="p-3 rounded-xl bg-[#0b0b12] border neon-border flex items-center justify-between gap-2">
+          <span class="text-zinc-200 select-text">${escapeHtml(m)}</span>
+          <button type="button" onclick="deleteMemoryItem(${i})" class="text-rose-400 font-bold px-2 py-1 hover:bg-rose-950/50 rounded-lg shrink-0">✕</button>
+        </div>
+      `).join("");
+    }
+
+    window.addPinnedMemory = () => {
+      const input = document.getElementById("newMemoryInput");
+      const val = input.value.trim();
+      if (!val) return;
+      if (!appState.memories[activeCharId]) appState.memories[activeCharId] = [];
+      appState.memories[activeCharId].push(val);
+      input.value = "";
+      saveState();
+      renderMemoryList();
+    };
+
+    window.deleteMemoryItem = (idx) => {
+      appState.memories[activeCharId].splice(idx, 1);
+      saveState();
+      renderMemoryList();
+    };
+
+    window.openLorebookModal = () => {
+      renderLorebookList();
+      document.getElementById("lorebookModal").classList.remove("hidden");
+    };
+
+    window.closeLorebookModal = () => {
+      document.getElementById("lorebookModal").classList.add("hidden");
+    };
+
+    function renderLorebookList() {
+      const entries = appState.lorebook || [];
+      const container = document.getElementById("lorebookList");
+      container.innerHTML = entries.map((entry, i) => `
+        <div class="p-3 rounded-xl bg-[#0b0b12] border neon-border flex items-start justify-between gap-2">
+          <div class="space-y-1 min-w-0">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-cyan-300 truncate">
+              Keys: ${escapeHtml((entry.keys || []).join(", "))}
+            </div>
+            <p class="text-zinc-200 leading-relaxed select-text">${escapeHtml(entry.note)}</p>
+          </div>
+          <button type="button" onclick="deleteLoreEntry(${i})" class="text-rose-400 font-bold px-2 py-1 hover:bg-rose-950/50 rounded-lg shrink-0">✕</button>
+        </div>
+      `).join("");
+    }
+
+    window.addLoreEntry = () => {
+      const keysRaw = document.getElementById("loreKeysInput").value.trim();
+      const note = document.getElementById("loreNoteInput").value.trim();
+      if (!keysRaw || !note) return;
+      const keys = keysRaw.split(",").map(k => k.trim().toLowerCase()).filter(Boolean);
+      appState.lorebook.unshift({ keys, note });
+      document.getElementById("loreKeysInput").value = "";
+      document.getElementById("loreNoteInput").value = "";
+      saveState();
+      renderLorebookList();
+    };
+
+    window.deleteLoreEntry = (idx) => {
+      appState.lorebook.splice(idx, 1);
+      saveState();
+      renderLorebookList();
+    };
+
+    function getMatchingLoreNotes(text) {
+      const lower = (text || "").toLowerCase();
+      return (appState.lorebook || [])
+        .filter(e => (e.keys || []).some(k => lower.includes(k)))
+        .map(e => e.note);
+    }
+
+    // =========================================================================
+    // CUSTOM GAL CREATION
+    // =========================================================================
+    window.openCreateModal = () => {
+      document.getElementById("customName").value = "";
+      document.getElementById("customAge").value = "20";
+      document.getElementById("customRole").value = "";
+      document.getElementById("customDistrict").value = "Shibuya, Tokyo";
+      document.getElementById("customHairColor").value = "#f4c242";
+      document.getElementById("customOutfitStyle").value = "off-shoulder";
+      document.getElementById("customBackstory").value = "";
+      document.getElementById("customOpening").value = "";
+      document.getElementById("createModal").classList.remove("hidden");
+    };
+
+    window.closeCreateModal = () => {
+      document.getElementById("createModal").classList.add("hidden");
+    };
+
+    window.saveCustomCharacter = (e) => {
+      e.preventDefault();
+      const name = document.getElementById("customName").value.trim();
+      const age = document.getElementById("customAge").value.trim() || "20";
+      const subculture = document.getElementById("customRole").value.trim();
+      const district = document.getElementById("customDistrict").value.trim() || "Shibuya, Tokyo";
+      const hairColor = document.getElementById("customHairColor").value.trim() || "#f4c242";
+      const outfit = document.getElementById("customOutfitStyle").value || "off-shoulder";
+      const rawStory = document.getElementById("customBackstory").value.trim();
+      const opening = document.getElementById("customOpening").value.trim();
+      const paras = rawStory.split(/\n+/).map(s => s.trim()).filter(Boolean);
+
+      const newChar = {
+        id: "custom_" + Date.now(),
+        isCustom: true,
+        name,
+        age,
+        originGroup: "Custom",
+        categories: ["Custom"],
+        subculture,
+        district,
+        speechStyle: "Natural, confident, playful, and subtly alluring once comfortable.",
+        bio: paras[0] ? paras[0].slice(0, 145) : subculture,
+        backstory: paras,
+        secret: "Opens up deeply as affinity builds.",
+        opening,
+        flirtLines: [
+          "*leans a little closer, holding your gaze with a slow smirk* Careful talking to me like that—I might take you up on it."
+        ],
+        datingLines: [
+          "*slips her hand into yours, leaning her head against your shoulder* Glad I'm with you tonight."
+        ],
+        visual: {
+          hairColor,
+          highlightColor: "#fff0b8",
+          hairStyle: "wavy_medium",
+          skinTone: "#f3c5a6",
+          eyeColor: "#ff2e93",
+          lipColor: "#ff2e93",
+          outfit,
+          outfitColor: "#241226",
+          accentColor: "#ff2e93",
+          accessory: "earrings",
+          bgTop: "#221028",
+          bgBottom: "#080810",
+          neonGlow: "#ff2e93"
+        }
+      };
+
+      synthesizedPortraits[newChar.id] = synthesizeCharacterPortraitDataUrl(newChar);
+      appState.customGals.unshift(newChar);
+      saveState();
+      closeCreateModal();
+      openChat(newChar.id);
+    };
+
+    // =========================================================================
+    // CHAT VIEW, SWIPE, EDIT, REWIND, SEARCH & VOICE
+    // =========================================================================
+    const DIRECTOR_TONES = ["Teasing & Bold", "Late-Night Intimate", "Slow Burn", "High Chemistry"];
+
+    function updateTonePillLabel() {
+      const btn = document.getElementById("tonePillBtn");
+      if (btn) btn.textContent = `Tone: ${appState.directorTone || "Teasing & Bold"}`;
+    }
+
+    window.cycleDirectorTone = () => {
+      const idx = DIRECTOR_TONES.indexOf(appState.directorTone || "Teasing & Bold");
+      appState.directorTone = DIRECTOR_TONES[(idx + 1) % DIRECTOR_TONES.length];
+      saveState();
+      updateTonePillLabel();
+      showToast(`Director tone: ${appState.directorTone}`);
+    };
+
+    window.toggleChatSearchBar = () => {
+      const bar = document.getElementById("chatSearchBar");
+      bar.classList.toggle("hidden");
+      if (!bar.classList.contains("hidden")) {
+        document.getElementById("chatSearchInput").focus();
+      } else {
+        clearChatSearch();
+      }
+    };
+
+    window.clearChatSearch = () => {
+      const input = document.getElementById("chatSearchInput");
+      if (input) input.value = "";
+      renderMessages();
+    };
+
+    window.openChat = (id) => {
+      activeCharId = id;
+      saveState();
+      const char = getCharacterById(id);
+      if (!synthesizedPortraits[char.id]) {
+        synthesizedPortraits[char.id] = synthesizeCharacterPortraitDataUrl(char);
+      }
+
+      if (!Array.isArray(appState.chats[id]) || appState.chats[id].length === 0) {
+        appState.chats[id] = [{ role: "assistant", content: char.opening }];
+        saveState();
+      }
+
+      document.getElementById("chatHeaderAvatar").innerHTML = renderAvatarImg(char);
+      document.getElementById("chatHeaderName").textContent = char.name;
+      document.getElementById("chatHeaderRole").textContent = `${char.district} • ${char.age}`;
+      showChatView();
+    };
+
+    function renderMessages() {
+      const container = document.getElementById("chatMessages");
+      const char = getCharacterById(activeCharId);
+      const list = appState.chats[activeCharId] || [];
+      const searchQ = (document.getElementById("chatSearchInput")?.value || "").trim().toLowerCase();
+      container.innerHTML = "";
+
+      const banner = document.createElement("div");
+      banner.className = "bg-[#12121c] border neon-border rounded-2xl p-3 flex items-center gap-3";
+      banner.innerHTML = `
+        <div class="w-12 h-14 rounded-xl overflow-hidden border border-white/15 shrink-0">
+          ${renderAvatarImg(char)}
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="font-editorial font-extrabold text-sm text-white truncate">${escapeHtml(char.name)} <span class="font-sans text-xs font-semibold text-[#f5c26b]">• ${escapeHtml(char.age)}</span></div>
+          <p class="text-[11px] text-zinc-400 line-clamp-2 mt-0.5">${escapeHtml(char.bio)}</p>
+        </div>
+      `;
+      container.appendChild(banner);
+
+      list.forEach((msg, idx) => {
+        if (!msg.isTyping && searchQ && !msg.content.toLowerCase().includes(searchQ)) return;
+
+        const isUser = msg.role === "user";
+        const isLastBot = !isUser && idx === list.length - 1 && idx > 0;
+
+        const wrapper = document.createElement("div");
+        wrapper.className = `flex flex-col ${isUser ? "items-end" : "items-start"} gap-1`;
+
+        const row = document.createElement("div");
+        row.className = `flex items-end gap-2 max-w-[90%] ${isUser ? "flex-row-reverse" : "flex-row"}`;
+
+        if (!isUser) {
+          const badge = document.createElement("div");
+          badge.className = "w-7 h-7 rounded-xl overflow-hidden border border-white/15 shrink-0";
+          badge.innerHTML = renderAvatarImg(char);
+          row.appendChild(badge);
+        }
+
+        const bubble = document.createElement("div");
+        bubble.id = `chat-bubble-${idx}`;
+        bubble.className = isUser
+          ? "user-bubble bg-gradient-to-r from-[#ff2e93] to-[#c91a70] text-white px-4 py-2.5 rounded-2xl rounded-br-sm text-sm leading-relaxed shadow-md whitespace-pre-wrap select-text"
+          : "bg-[#12121c] border neon-border text-zinc-100 px-4 py-2.5 rounded-2xl rounded-bl-sm text-sm leading-relaxed shadow-md whitespace-pre-wrap select-text";
+
+        if (msg.isTyping) {
+          bubble.innerHTML = `
+            <div class="flex items-center gap-1.5 py-1 px-1">
+              <span class="typing-dot w-1.5 h-1.5 rounded-full bg-[#ff2e93]"></span>
+              <span class="typing-dot w-1.5 h-1.5 rounded-full bg-[#a855f7]"></span>
+              <span class="typing-dot w-1.5 h-1.5 rounded-full bg-cyan-300"></span>
+            </div>
+          `;
+        } else {
+          bubble.innerHTML = formatActions(msg.content);
+        }
+
+        row.appendChild(bubble);
+        wrapper.appendChild(row);
+
+        if (!msg.isTyping) {
+          const actions = document.createElement("div");
+          actions.className = `${isUser ? "pr-1" : "pl-9"} flex items-center gap-3 text-[11px]`;
+
+          if (!isUser) {
+            const speakBtn = document.createElement("button");
+            speakBtn.type = "button";
+            speakBtn.className = "text-zinc-400 hover:text-white font-medium";
+            speakBtn.textContent = "🔊 Listen";
+            speakBtn.onclick = () => speakMessage(msg.content);
+            actions.appendChild(speakBtn);
+          }
+
+          const editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.className = "text-zinc-400 hover:text-white font-medium";
+          editBtn.textContent = "Edit";
+          editBtn.onclick = () => editMessageInline(idx);
+          actions.appendChild(editBtn);
+
+          if (idx > 0) {
+            const rewindBtn = document.createElement("button");
+            rewindBtn.type = "button";
+            rewindBtn.className = "text-cyan-300/85 hover:text-cyan-200 font-medium";
+            rewindBtn.textContent = "Rewind Here";
+            rewindBtn.onclick = () => rewindToMessage(idx);
+            actions.appendChild(rewindBtn);
+          }
+
+          if (isLastBot) {
+            const regenBtn = document.createElement("button");
+            regenBtn.type = "button";
+            regenBtn.className = "font-semibold text-[#f5c26b] hover:text-amber-200";
+            regenBtn.textContent = "↻ Swipe Reply";
+            regenBtn.onclick = () => regenerateLastReply();
+            actions.appendChild(regenBtn);
+          }
+
+          wrapper.appendChild(actions);
+        }
+
+        container.appendChild(wrapper);
+      });
+
+      container.scrollTop = container.scrollHeight;
+    }
+
+    window.rewindToMessage = (idx) => {
+      if (isGenerating) return;
+      showToast("Rewind conversation to this message?", "Rewind", () => {
+        appState.chats[activeCharId] = appState.chats[activeCharId].slice(0, idx + 1);
+        saveState();
+        renderMessages();
+        showToast("Conversation rewound.");
+      });
+    };
+
+    window.editMessageInline = (idx) => {
+      const bubble = document.getElementById(`chat-bubble-${idx}`);
+      const currentText = appState.chats[activeCharId][idx].content;
+      bubble.innerHTML = `
+        <textarea id="editArea-${idx}" rows="3" class="w-full min-w-[220px] bg-black/50 border border-white/25 rounded-xl p-2 text-xs text-white focus:outline-none">${escapeHtml(currentText)}</textarea>
+        <div class="flex justify-end gap-2 mt-1.5">
+          <button type="button" onclick="renderMessages()" class="px-2.5 py-1 rounded-lg bg-white/10 text-[11px]">Cancel</button>
+          <button type="button" onclick="saveEditedMessage(${idx})" class="px-2.5 py-1 rounded-lg bg-[#f5c26b] text-black font-bold text-[11px]">Save</button>
+        </div>
+      `;
+    };
+
+    window.saveEditedMessage = (idx) => {
+      const val = document.getElementById(`editArea-${idx}`)?.value.trim();
+      if (!val) return;
+      appState.chats[activeCharId][idx].content = val;
+      saveState();
+      renderMessages();
+    };
+
+    window.speakMessage = (text) => {
+      if (!("speechSynthesis" in window)) {
+        showToast("Voice playback not supported here.");
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        const spoken = text.replace(/\*[^*]+\*/g, "").trim();
+        if (!spoken) return;
+        const utter = new SpeechSynthesisUtterance(spoken);
+        utter.rate = 1.02;
+        utter.pitch = 1.08;
+        window.speechSynthesis.speak(utter);
+      } catch (_) {}
+    };
+
+    window.triggerQuickPrompt = async (text) => {
+      if (isGenerating) return;
+      appState.chats[activeCharId].push({ role: "user", content: text });
+      saveState();
+      renderMessages();
+      await runAssistantTurn(false);
+    };
+
+    window.continueScene = async () => {
+      if (isGenerating) return;
+      await runAssistantTurn(true);
+    };
+
+    // =========================================================================
+    // AI ENGINE (SMART ENGINE + OFFLINE WEBGPU + CUSTOM API)
+    // =========================================================================
+    window.openEngineModal = () => {
+      document.getElementById("customApiUrl").value = customApiConfig.url || "";
+      document.getElementById("customApiKey").value = customApiConfig.key || "";
+      document.getElementById("customApiModel").value = customApiConfig.model || "gpt-4o-mini";
+      document.getElementById("engineModal").classList.remove("hidden");
+    };
+
+    window.closeEngineModal = () => {
+      document.getElementById("engineModal").classList.add("hidden");
+    };
+
+    window.useSmartEngine = () => {
+      engineMode = "smart";
+      updateEngineBadges();
+      showToast("Smart Chemistry Engine active!");
+    };
+
+    window.saveCustomApiConfig = () => {
+      customApiConfig = {
+        url: document.getElementById("customApiUrl").value.trim(),
+        key: document.getElementById("customApiKey").value.trim(),
+        model: document.getElementById("customApiModel").value.trim() || "gpt-4o-mini"
+      };
+      try { localStorage.setItem("shibuya_gal_api_v30", JSON.stringify(customApiConfig)); } catch (_) {}
+      if (customApiConfig.url) {
+        engineMode = "custom_api";
+        updateEngineBadges();
+        closeEngineModal();
+        showToast("Custom API connected!");
+      } else {
+        engineMode = "smart";
+        updateEngineBadges();
+      }
+    };
+
+    function updateEngineBadges() {
+      const dot = document.getElementById("aiStatusDot");
+      const badge = document.getElementById("engineActiveBadge");
+      if (engineMode === "webgpu" && webllmEngine) {
+        dot.className = "w-2 h-2 rounded-full bg-emerald-400";
+        badge.textContent = "Offline WebLLM";
+      } else if (engineMode === "custom_api" && customApiConfig.url) {
+        dot.className = "w-2 h-2 rounded-full bg-sky-400";
+        badge.textContent = "Custom API";
+      } else {
+        dot.className = "w-2 h-2 rounded-full bg-[#f5c26b]";
+        badge.textContent = "Smart Chemistry Engine";
+      }
+    }
+
+    window.loadOfflineWebLLM = async () => {
+      const statusEl = document.getElementById("webgpuStatusText");
+      const pctEl = document.getElementById("webgpuProgressPct");
+      const barEl = document.getElementById("webgpuProgressBar");
+      const btn = document.getElementById("loadWebgpuBtn");
+
+      if (!window.isSecureContext || !navigator.gpu) {
+        statusEl.textContent = "Needs https:// & WebGPU. Smart Engine remains active.";
+        showToast("Smart Engine is active offline right now.");
+        return;
+      }
+
+      const modelId = document.getElementById("webgpuModelSelect").value;
+      btn.disabled = true;
+      btn.textContent = "Loading...";
+
+      try {
+        const webllm = await import("https://esm.run/@mlc-ai/web-llm");
+        if (webllmEngine) await webllmEngine.unload();
+        webllmEngine = await webllm.CreateMLCEngine(modelId, {
+          initProgressCallback: (report) => {
+            statusEl.textContent = report.text || "Loading model...";
+            const pct = Math.round((report.progress || 0) * 100);
+            pctEl.textContent = `${pct}%`;
+            barEl.style.width = `${pct}%`;
+          }
+        });
+        engineMode = "webgpu";
+        updateEngineBadges();
+        statusEl.textContent = "Offline WebLLM loaded.";
+        btn.textContent = "Loaded";
+        btn.disabled = false;
+        showToast("Offline WebLLM active!");
+      } catch (err) {
+        console.error(err);
+        engineMode = "smart";
+        updateEngineBadges();
+        btn.textContent = "Retry Load";
+        btn.disabled = false;
+        statusEl.textContent = "WebGPU unavailable here—Smart Engine active.";
+      }
+    };
+
+    function buildSystemPrompt(char, latestUserText = "") {
+      const persona = appState.persona || { name: "You", age: "21", bio: "", dynamic: "" };
+      const stage = getRelationshipStage(char.id);
+      const pinned = (appState.memories?.[char.id] || []).join(" | ");
+      const loreNotes = getMatchingLoreNotes(latestUserText).join(" | ");
+      return [
+        `You are ${char.name} (${char.age}) in ${char.district}.`,
+        `Vibe: ${char.speechStyle} ${char.bio}`,
+        `Director tone: ${appState.directorTone || "Teasing & Bold"}.`,
+        `User persona: ${persona.name} (${persona.age}) — ${persona.bio}. Dynamic: ${persona.dynamic || ""}`,
+        `Relationship: ${stage.label} (${getAffinity(char.id)}%).`,
+        pinned ? `Pinned memories: ${pinned}` : "",
+        loreNotes ? `World context: ${loreNotes}` : "",
+        `Speak naturally like a confident, alluring 19–22 year old woman having real chemistry. Use *asterisks* for physical actions and keep replies to 2–3 crisp sentences.`
+      ].filter(Boolean).join("\n");
+    }
+
+    function generateSmartReply(char, userMsg, isContinue = false) {
+      if (!usedRepliesMap[char.id]) usedRepliesMap[char.id] = new Set();
+      const used = usedRepliesMap[char.id];
+
+      const clean = userMsg.replace(/\*[^*]+\*/g, "").trim();
+      const lower = userMsg.toLowerCase();
+      const hasAction = /\*[^*]+\*/.test(userMsg);
+      const isQuestion = clean.includes("?") || /^(what|why|how|where|when|who|do you|are you|can we|wanna|want to)\b/i.test(clean);
+      const isFlirty = /\b(cute|pretty|gorgeous|beautiful|sexy|hot|attractive|stunning|kiss|touch|close|lips|neck|waist|stay|tonight|want you|like you|date|girlfriend|mine|tease|flirt|smile|eyes)\b/i.test(lower);
+      const score = getAffinity(char.id);
+      const isDating = Boolean(appState.datingStatus?.[char.id]?.isDating) || score >= 80;
+      const userName = appState.persona?.name && appState.persona.name !== "You" ? appState.persona.name : "";
+      const loreMatch = getMatchingLoreNotes(userMsg)[0];
+
+      if (isFlirty || hasAction) addAffinity(char.id, 7);
+      else if (clean.length > 10) addAffinity(char.id, 4);
+
+      const pool = [];
+      if (loreMatch) {
+        pool.push(`*glances around with a knowing smile* ${loreMatch} Feels right having you here with me.`);
+      }
+      if (isDating && (isFlirty || hasAction || isContinue)) {
+        if (Array.isArray(char.datingLines)) pool.push(...char.datingLines);
+        pool.push(
+          `*leans in closer, fingers brushing along your jaw before resting against your chest* You don't have to hold back around me${userName ? `, ${userName}` : ""}. Tell me what you want tonight.`,
+          `*smiles softly against your shoulder, voice low* Forget checking the time—stay right here with me.`
+        );
+      }
+      if (isFlirty) {
+        if (Array.isArray(char.flirtLines)) pool.push(...char.flirtLines);
+        pool.push(
+          `*holds your gaze a beat longer than necessary, a slow smirk curving her lips* Careful saying things like that when we're sitting this close—I might take you up on it.`,
+          `*tilts her head, eyes glinting with quiet interest* You're bold when you want to be. Good—I hate having to do all the work myself.`
+        );
+      }
+      if (hasAction) {
+        pool.push(
+          `*doesn't pull back—instead leaning slightly into your space with an amused smile* Smooth move${userName ? `, ${userName}` : ""}. Most people overthink; you just go for it.`,
+          `*watches you closely with quiet curiosity* You're full of surprises tonight. Keep going—I'm enjoying this.`
+        );
+      }
+      if (isQuestion) {
+        pool.push(
+          `*rests her chin in her hand with relaxed warmth* Right now I'm just glad I didn't stay home alone tonight. What kind of night are you actually looking for?`,
+          `*laughs softly, brushing hair back over one shoulder* Honestly? I get bored easily, and you're holding my attention.`
+        );
+      }
+      pool.push(
+        `*leans back slightly with an easy, inviting smile* You're dangerously easy to talk to${userName ? `, ${userName}` : ""}. No forced energy, no trying too hard.`,
+        `*glances over with a warm, teasing half-smile* Thinking about something you shouldn't say out loud, or deciding what our next move is?`,
+        `*leans closer across the table* Tell me something real about yourself. Skip the boring small talk.`
+      );
+
+      let pick = pool.find(line => !used.has(line));
+      if (!pick) {
+        used.clear();
+        pick = pool[0];
+      }
+      used.add(pick);
+      return pick;
+    }
+
+    window.handleSendOrStop = async () => {
+      if (isGenerating) {
+        abortFlag = true;
+        if (webllmEngine) {
+          try { webllmEngine.interruptGenerate(); } catch (_) {}
+        }
+        return;
+      }
+
+      const input = document.getElementById("chatInput");
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = "";
+      input.style.height = "auto";
+      appState.chats[activeCharId].push({ role: "user", content: text });
+      saveState();
+      renderMessages();
+      await runAssistantTurn(false);
+    };
+
+    window.regenerateLastReply = async () => {
+      if (isGenerating) return;
+      const list = appState.chats[activeCharId];
+      if (list.length > 1 && list[list.length - 1].role === "assistant") {
+        list.pop();
+        saveState();
+        renderMessages();
+        await runAssistantTurn(false);
+      }
+    };
+
+    async function runAssistantTurn(isContinue = false) {
+      const char = getCharacterById(activeCharId);
+      isGenerating = true;
+      abortFlag = false;
+      toggleSendStop(true);
+
+      appState.chats[activeCharId].push({ role: "assistant", content: "", isTyping: true });
+      renderMessages();
+      const idx = appState.chats[activeCharId].length - 1;
+      const container = document.getElementById("chatMessages");
+      const lastUserMsg = [...appState.chats[activeCharId]].slice(0, -1).reverse().find(m => m.role === "user")?.content || "";
+
+      try {
+        if (engineMode === "webgpu" && webllmEngine) {
+          const contextMsgs = appState.chats[activeCharId].slice(0, -1).slice(-10).map(m => ({ role: m.role, content: m.content }));
+          let acc = "";
+          const stream = await webllmEngine.chat.completions.create({
+            messages: [{ role: "system", content: buildSystemPrompt(char, lastUserMsg) }, ...contextMsgs],
+            temperature: 0.85,
+            max_tokens: 190,
+            stream: true
+          });
+          for await (const chunk of stream) {
+            if (abortFlag) break;
+            acc += chunk.choices[0]?.delta?.content || "";
+            appState.chats[activeCharId][idx] = { role: "assistant", content: acc, isTyping: false };
+            const bubble = document.getElementById(`chat-bubble-${idx}`);
+            if (bubble) {
+              bubble.innerHTML = formatActions(acc || "...");
+              container.scrollTop = container.scrollHeight;
+            }
+          }
+          addAffinity(activeCharId, 5);
+        } else if (engineMode === "custom_api" && customApiConfig.url) {
+          const contextMsgs = appState.chats[activeCharId].slice(0, -1).slice(-12).map(m => ({ role: m.role, content: m.content }));
+          const headers = { "Content-Type": "application/json" };
+          if (customApiConfig.key) headers["Authorization"] = `Bearer ${customApiConfig.key}`;
+          const resp = await fetch(customApiConfig.url, {
+            method: "POST",
+            headers,
+            body: JSON.stringify({
+              model: customApiConfig.model || "gpt-4o-mini",
+              messages: [{ role: "system", content: buildSystemPrompt(char, lastUserMsg) }, ...contextMsgs],
+              temperature: 0.85,
+              max_tokens: 220
+            })
+          });
+          const data = await resp.json();
+          const replyText = data.choices?.[0]?.message?.content?.trim() || "*smiles softly* Say that again?";
+          appState.chats[activeCharId][idx] = { role: "assistant", content: replyText, isTyping: false };
+          addAffinity(activeCharId, 5);
+        } else {
+          const reply = generateSmartReply(char, lastUserMsg, isContinue);
+          await new Promise(r => setTimeout(r, 220));
+
+          let partial = "";
+          const words = reply.split(" ");
+          for (let i = 0; i < words.length; i++) {
+            if (abortFlag) break;
+            partial += (i === 0 ? "" : " ") + words[i];
+            appState.chats[activeCharId][idx] = { role: "assistant", content: partial, isTyping: false };
+            const bubble = document.getElementById(`chat-bubble-${idx}`);
+            if (bubble) {
+              bubble.innerHTML = formatActions(partial);
+              container.scrollTop = container.scrollHeight;
+            }
+            await new Promise(r => setTimeout(r, 14));
+          }
+        }
+        saveState();
+      } catch (err) {
+        console.error(err);
+        appState.chats[activeCharId][idx] = {
+          role: "assistant",
+          content: "*glances over with a slight smirk* Missed that for a second—tap Swipe Reply to try again.",
+          isTyping: false
+        };
+        saveState();
+      } finally {
+        isGenerating = false;
+        toggleSendStop(false);
+        renderMessages();
+      }
+    }
+
+    function toggleSendStop(generating) {
+      document.getElementById("sendIcon").classList.toggle("hidden", generating);
+      document.getElementById("stopIcon").classList.toggle("hidden", !generating);
+    }
+
+    // =========================================================================
+    // BACKUP / RESTORE, PHOTO OVERRIDES & HELPERS
+    // =========================================================================
+    window.openBackupModal = () => {
+      document.getElementById("photoOverridesJson").value = JSON.stringify(appState.customPhotos || {}, null, 2);
+      document.getElementById("backupModal").classList.remove("hidden");
+    };
+    window.closeBackupModal = () => document.getElementById("backupModal").classList.add("hidden");
+
+    window.exportBackupJson = () => {
+      const blob = new Blob([JSON.stringify(appState, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `shibuya-gal-studio-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("Full JSON backup exported!");
+    };
+
+    window.importBackupJson = (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && typeof parsed === "object" && parsed.chats) {
+            appState = { ...appState, ...parsed };
+            saveState();
+            closeBackupModal();
+            renderRoster();
+            showToast("Backup restored!");
+          } else {
+            showToast("Invalid JSON backup.");
+          }
+        } catch {
+          showToast("Could not read JSON file.");
+        }
+      };
+      reader.readAsText(file);
+    };
+
+    window.importPhotoOverridesJson = () => {
+      const raw = document.getElementById("photoOverridesJson").value.trim();
+      if (!raw) return;
+      try {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+          appState.customPhotos = parsed;
+          saveState();
+          closeBackupModal();
+          renderRoster();
+          showToast("Photo overrides applied!");
+        } else {
+          showToast("Expected a JSON object { id: url }.");
+        }
+      } catch {
+        showToast("Invalid JSON format.");
+      }
+    };
+
+    window.clearAllCustomPhotos = () => {
+      appState.customPhotos = {};
+      document.getElementById("photoOverridesJson").value = "{}";
+      saveState();
+      renderRoster();
+      showToast("Cleared custom photo overrides.");
+    };
+
+    window.confirmResetChat = () => {
+      showToast("Reset chat & affinity with her?", "Reset", () => {
+        const char = getCharacterById(activeCharId);
+        usedRepliesMap[activeCharId] = new Set();
+        appState.chats[activeCharId] = [{ role: "assistant", content: char.opening }];
+        appState.affinity[activeCharId] = 20;
+        appState.datingStatus[activeCharId] = { isDating: false, venue: "" };
+        saveState();
+        updateAffinityUI(activeCharId);
+        renderMessages();
+      });
+    };
+
+    window.insertAsteriskAction = () => {
+      const input = document.getElementById("chatInput");
+      const start = input.selectionStart || 0;
+      const end = input.selectionEnd || 0;
+      const val = input.value;
+      const sel = val.substring(start, end);
+      input.value = val.substring(0, start) + `*${sel}*` + val.substring(end);
+      input.focus();
+      const pos = sel ? end + 2 : start + 1;
+      input.setSelectionRange(pos, pos);
+    };
+
+    window.autoResizeTextarea = (el) => {
+      el.style.height = "auto";
+      el.style.height = Math.min(el.scrollHeight, 112) + "px";
+    };
+
+    window.handleInputKey = (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        handleSendOrStop();
+      }
+    };
+
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function escapeAttr(str) {
+      return escapeHtml(str).replace(/'/g, "&#39;");
+    }
+
+    function formatActions(text) {
+      return escapeHtml(text).replace(/\*([^*]+)\*/g, '<span class="rp-action">*$1*</span>');
+    }
+
+    let toastTimer = null;
+    function showToast(message, actionText = "", onAction = null) {
+      const banner = document.getElementById("toastBanner");
+      const msgEl = document.getElementById("toastMessage");
+      const btnEl = document.getElementById("toastAction");
+      msgEl.textContent = message;
+      if (actionText && onAction) {
+        btnEl.textContent = actionText;
+        btnEl.classList.remove("hidden");
+        btnEl.onclick = () => {
+          banner.classList.add("hidden");
+          onAction();
+        };
+      } else {
+        btnEl.classList.add("hidden");
+      }
+      banner.classList.remove("hidden");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => banner.classList.add("hidden"), 4200);
+    }
+
+    // =========================================================================
+    // IMMEDIATE SYNCHRONOUS BOOT
+    // =========================================================================
+    function bootStudio() {
+      ensureAllPortraitsSynthesized();
+      updateEngineBadges();
+      updateTonePillLabel();
+      renderRoster();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", bootStudio);
+    } else {
+      bootStudio();
+    }
+  </script>
+</body>
+</html>
